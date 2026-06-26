@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>学習ヘルパー — 挑戦様のホーム</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <!-- 수정: assets 폴더가 최상위에 있다고 가정 -->
+  <link rel="stylesheet" href="assets/style.css">
   <style>
     @page { size: 1280px 1600px; margin: 0; }
     body { width: 100%; max-width: 1280px; margin: 0 auto; }
@@ -16,14 +17,12 @@
     .feed-row { display: flex; gap: 12px; padding: 12px; align-items: center; border-bottom: 1px solid var(--neutral-200); transition: background 0.15s; }
     .feed-row:last-child { border-bottom: 0; }
     .feed-row:hover { background: var(--neutral-50); }
-    /* 広告スロット共通（無料ユーザー専用、プレミアムは非表示） */
     .ad-slot { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 90px; padding: 16px 24px; background: var(--neutral-50); border: 1px dashed var(--neutral-300); border-radius: var(--r-md); }
     .ad-slot .ad-chip { position: absolute; top: 10px; left: 12px; padding: 2px 8px; background: var(--neutral-200); color: var(--neutral-500); font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; border-radius: var(--r-sm); }
     .ad-slot .ad-body { flex: 1; text-align: center; color: var(--neutral-400); }
     .ad-slot .ad-body .ad-title { font-size: 15px; font-weight: 600; }
     .ad-slot .ad-body .ad-spec { font-size: 11px; font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
     .ad-slot .ad-upsell { flex-shrink: 0; color: var(--orange); font-weight: 600; font-size: 12px; text-decoration: none; }
-    /* プロフィールドロップダウン */
     .topbar-right .user-chip { transition: background 0.15s; }
     .topbar-right .user-chip:hover { background: var(--neutral-50); }
     .profile-menu-item:hover { background: var(--neutral-50); }
@@ -34,361 +33,27 @@
 <div class="page">
 
   <div class="topbar">
-    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;">
+  
+    <a href="01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;">
       <span class="dot">📘</span>
       <span>学習ヘルパー</span>
     </a>
     <nav class="topbar-nav">
       <a href="#" class="active">ホーム</a>
-      <a href="../02_dashboard/code.html">学習</a>
-      <a href="../05_community/code.html">コミュニティ</a>
-      <a href="../08_store/code.html">ストア</a>
-      <a href="../35_info_notice/code.html">情報</a>
-      <a href="../36_support_faq/code.html">カスタマーセンター</a>
+      <a href="02_dashboard/code.html">学習</a>
+      <a href="05_community/code.html">コミュニティ</a>
+      <a href="08_store/code.html">ストア</a>
+      <a href="35_info_notice/code.html">情報</a>
+      <a href="36_support_faq/code.html">カスタマーセンター</a>
     </nav>
-    <div class="topbar-search">🔍 &nbsp; 検索語を入力してください...</div>
-    <div class="topbar-right">
-      <span class="icon-btn" style="position: relative; cursor: pointer;" onclick="toggleNotif(event)">🔔<span style="position: absolute; top: -2px; right: -2px; background: var(--red); color: var(--white); border-radius: 50%; min-width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; padding: 0 4px;">3</span>
-        <div id="notifPopup" style="display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 320px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-md); box-shadow: var(--shadow-lg); padding: 16px; z-index: 100; text-align: left; cursor: default;" onclick="event.stopPropagation()">
-          <div class="card-title" style="color: var(--orange); margin-bottom: 12px;"><span class="icon">🔔</span> 通知 <span style="background: var(--red); color: var(--white); padding: 1px 7px; border-radius: 999px; font-size: 10px; font-weight: 700; margin-left: 4px;">3</span></div>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm); border-left: 3px solid var(--orange);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <div style="font-size: 12px; font-weight: 700; color: var(--navy);">💡 新しいバッジ未受領</div>
-                <span style="font-size: 10px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2時間前</span>
-              </div>
-              <div style="font-size: 11px; color: var(--neutral-600); line-height: 1.5;">「夜更かし学習者」バッジが発行されました。ストアで受け取ってください。</div>
-            </div>
-            <div style="padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm); border-left: 3px solid var(--info);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <div style="font-size: 12px; font-weight: 700; color: var(--navy);">💬 QnA回答到着</div>
-                <span style="font-size: 10px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">5時間前</span>
-              </div>
-              <div style="font-size: 11px; color: var(--neutral-600); line-height: 1.5;">「SQL JOINの違い」の質問に回答が3件届きました。ベストアンサーを選んでください。</div>
-            </div>
-            <div style="padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm); border-left: 3px solid var(--red);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <div style="font-size: 12px; font-weight: 700; color: var(--red);">⚠️ 黒歴史公開迫る</div>
-                <span style="font-size: 10px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">たった今</span>
-              </div>
-              <div style="font-size: 11px; color: var(--neutral-600); line-height: 1.5;">目標未達成時、<strong style="color: var(--red);">8時間後</strong>に封印所が自動公開されます。今すぐ学習を開始してください。</div>
-            </div>
-          </div>
-          <a href="#" style="display: block; text-align: center; margin-top: 12px; font-size: 12px; color: var(--orange); font-weight: 600; text-decoration: none;">すべての通知を見る →</a>
-        </div>
-      </span>
-      <span class="user-chip" id="userChip" role="button" tabindex="0" aria-haspopup="menu" aria-expanded="false" onclick="toggleProfile(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleProfile(event);}" style="cursor: pointer; position: relative;"><span class="avatar">挑</span>挑戦
-        <div id="profilePopup" role="menu" style="display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 280px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-md); box-shadow: var(--shadow-lg); z-index: 100; text-align: left; cursor: default; overflow: hidden;" onclick="event.stopPropagation()">
-
-          <div style="padding: 16px;">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <span class="avatar" style="width: 44px; height: 44px; font-size: 18px; flex-shrink: 0;">挑</span>
-              <div>
-                <div style="font-size: 15px; font-weight: 700; color: var(--navy);">挑戦様</div>
-                <div style="font-size: 12px; color: var(--neutral-500); margin-top: 2px;">🏆 マスター学習者 · Lv.12</div>
-              </div>
-            </div>
-            <div class="progress-track">
-              <div class="progress-fill" style="width: 74%;"></div>
-            </div>
-            <div style="font-size: 11px; color: var(--neutral-500); margin-top: 6px;">次のレベルまで260 XP</div>
-            <div style="font-size: 11px; color: var(--neutral-600); margin-top: 10px;">🔥 連続14日 · 🏆 週間6位 · 🪙 1,240 P</div>
-          </div>
-
-          <div style="height: 1px; background: var(--neutral-200);"></div>
-
-          <div style="padding: 8px;" role="none">
-            <a class="profile-menu-item" role="menuitem" href="../04_mypage/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--navy); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">👤</span>マイページ</a>
-            <a class="profile-menu-item" role="menuitem" href="../27_my_vault/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--navy); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">🔒</span>黒歴史封印所</a>
-            <a class="profile-menu-item" role="menuitem" href="../28_my_penalty/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--navy); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">⚠️</span>ペナルティ現況</a>
-            <a class="profile-menu-item" role="menuitem" href="../29_my_history/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--navy); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">📑</span>活動履歴</a>
-          </div>
-
-          <div style="height: 1px; background: var(--neutral-200);"></div>
-
-          <div style="padding: 8px;" role="none">
-            <a class="profile-menu-item" role="menuitem" href="../08_store/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--orange); font-weight: 700; text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">⭐</span>プレミアムアップグレード</a>
-            <a class="profile-menu-item" role="menuitem" href="../04_mypage/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--navy); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">⚙️</span>設定</a>
-            <a class="profile-menu-item" role="menuitem" href="../36_support_faq/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--navy); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">🎧</span>カスタマーセンター</a>
-          </div>
-
-          <div style="height: 1px; background: var(--neutral-200);"></div>
-
-          <div style="padding: 8px;" role="none">
-            <a class="profile-logout" role="menuitem" href="../18_login/code.html" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px; border-radius: var(--r-sm); color: var(--red); text-decoration: none;"><span style="width: 18px; text-align: center; flex-shrink: 0;">🚪</span>ログアウト</a>
-          </div>
-        </div>
-      </span>
-    </div>
-  </div>
-
-  <div class="main-content">
-
-    <section style="margin: 24px 0;">
-      <div style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: 16px;">
-        <div>
-          <div style="font-size: 13px; color: var(--orange); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 6px;">2026年5月26日 火曜日</div>
-          <h1 style="font-size: 32px; font-weight: 700; color: var(--navy); margin: 0 0 6px;">こんにちは、挑戦様 👋</h1>
-          <p style="font-size: 15px; color: var(--neutral-600); margin: 0;">今日の目標 <strong style="color: var(--orange);">3時間</strong>中 <strong style="color: var(--green);">1時間20分</strong>達成。残り1時間40分です！</p>
-        </div>
-        <a href="../03_session/code.html" class="btn btn-primary btn-lg" style="font-size: 15px;">▶ 学習セッション開始</a>
-      </div>
-
-      <div class="ad-slot" style="margin: 16px 0;">
-        <span class="ad-chip">広告</span>
-        <div class="ad-body">
-          <div class="ad-title">広告エリア</div>
-          <div class="ad-spec">Leaderboard 728×90</div>
-        </div>
-        <a href="../08_store/code.html" class="ad-upsell">広告なしで学習する →</a>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px;">
-        <a href="../02_dashboard/code.html" class="quick-card">
-          <div class="ico" style="background: var(--info-soft); color: var(--info);">📊</div>
-          <div style="font-size: 14px; font-weight: 700; color: var(--navy);">学習ダッシュボード</div>
-          <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">目標・To-Do・進行率</div>
-        </a>
-        <a href="../05_community/code.html" class="quick-card">
-          <div class="ico" style="background: var(--red-soft-2); color: var(--red);">🔓</div>
-          <div style="font-size: 14px; font-weight: 700; color: var(--navy);">公開掲示板</div>
-          <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">今日の新しい黒歴史12件</div>
-        </a>
-        <a href="../05b_qna/code.html" class="quick-card">
-          <div class="ico" style="background: var(--green-soft); color: var(--green);">💬</div>
-          <div style="font-size: 14px; font-weight: 700; color: var(--navy);">QnA掲示板</div>
-          <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">未解決12件 · +30 XP</div>
-        </a>
-        <a href="../08_store/code.html" class="quick-card">
-          <div class="ico" style="background: var(--orange-soft); color: var(--orange);">🛒</div>
-          <div style="font-size: 14px; font-weight: 700; color: var(--navy);">報酬ストア</div>
-          <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">新規アイテム7種</div>
-        </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
-        <h2 style="font-size: 20px; font-weight: 700; color: var(--navy); margin: 0;">📈 私の学習現況</h2>
-        <a href="../06_stats/code.html" style="font-size: 12px; color: var(--orange); font-weight: 600; text-decoration: none;">全体統計を見る →</a>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
-        <div class="card elevated">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <div class="card-title" style="margin-bottom: 0;"><span class="icon">⏱</span> 今日の学習</div>
-            <span class="badge badge-info">44%</span>
-          </div>
-          <div style="display: flex; align-items: baseline; gap: 4px;">
-            <div style="font-size: 32px; font-weight: 700; color: var(--navy); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">1h 20m</div>
-            <div style="font-size: 13px; color: var(--neutral-400);">/ 3h</div>
-          </div>
-          <div class="progress-track" style="margin-top: 12px;">
-            <div class="progress-fill" style="width: 44%;"></div>
-          </div>
-          <div style="font-size: 11px; color: var(--neutral-500); margin-top: 8px; font-family: 'JetBrains Mono', monospace;">残り時間: 1h 40m · 連続14日目</div>
-        </div>
-
-        <div class="risk-card">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="label">⚠️ ペナルティ危険度</div>
-            <span style="background: var(--red); color: var(--white); padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">危険</span>
-          </div>
-          <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 12px;">
-            <div class="pct" style="font-size: 32px;">85%</div>
-            <div style="font-size: 12px; color: var(--red); font-weight: 600;">· 8時間後公開</div>
-          </div>
-          <div class="progress-track" style="margin-top: 8px; background: rgba(239,68,68,0.15);">
-            <div class="progress-fill red" style="width: 85%;"></div>
-          </div>
-          <a href="../03_session/code.html" class="btn btn-danger btn-sm" style="width: 100%; margin-top: 10px;">今すぐ学習開始 →</a>
-        </div>
-
-        <div class="card elevated" style="background: linear-gradient(180deg, #FFFBEB 0%, #FFF7ED 100%); border-color: #FFD700; border-width: 1.5px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <div class="card-title" style="margin-bottom: 0; color: #B45309;"><span class="icon">🏆</span> 今週の学習王</div>
-            <span style="background: #FFD700; color: #92400E; padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▲ 3</span>
-          </div>
-          <div style="display: flex; align-items: baseline; gap: 6px;">
-            <div style="font-size: 32px; font-weight: 700; color: #B45309; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">6位</div>
-            <div style="font-size: 12px; color: #92400E;">/ 2,847名 · 今週累計</div>
-          </div>
-          <div style="font-size: 11px; color: var(--neutral-600); margin-top: 8px;">TOP 3まで <strong style="color: var(--orange);">9h 48m</strong> 不足</div>
-          <a href="../05d_hall/code.html" style="display: block; text-align: center; margin-top: 10px; padding: 6px; font-size: 12px; color: #B45309; font-weight: 600; text-decoration: none;">名誉の殿堂を見る →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div style="background: linear-gradient(135deg, var(--navy) 0%, #0F2447 100%); color: var(--white); border-radius: var(--r-lg); padding: 32px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,92,0,0.2) 0%, transparent 70%); border-radius: 50%;"></div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; position: relative;">
-          <div>
-            <div style="font-size: 11px; letter-spacing: 0.14em; color: var(--orange); font-weight: 700; margin-bottom: 8px;">🤖 AI学習分析</div>
-            <h3 style="font-size: 22px; font-weight: 700; margin: 0 0 8px; line-height: 1.35;">今日は<span style="color: var(--orange);">アルゴリズム</span>学習が<br>不足しています</h3>
-            <p style="font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 16px;">ここ3日間、アルゴリズム学習時間が<br><strong style="color: var(--orange);">平均対比38%減少</strong>しました。<br>今日1時間だけ補習すれば平均回復可能です。</p>
-            <a href="../07_ai/code.html" style="display: inline-block; padding: 10px 20px; background: var(--orange); color: var(--white); border-radius: var(--r-md); font-size: 13px; font-weight: 700; text-decoration: none;">AIヘルパーと解いてみる →</a>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="padding: 12px; background: rgba(255,255,255,0.08); border-radius: var(--r-sm); border-left: 3px solid var(--orange);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <span style="font-size: 13px; font-weight: 700;">DFS / BFS 復習</span>
-                <span style="font-size: 11px; color: var(--orange); font-family: 'JetBrains Mono', monospace;">+50 XP</span>
-              </div>
-              <div style="font-size: 11px; color: rgba(255,255,255,0.6);">予想30分 · 未解決質問8件参照</div>
-            </div>
-            <div style="padding: 12px; background: rgba(255,255,255,0.08); border-radius: var(--r-sm); border-left: 3px solid #10B981;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <span style="font-size: 13px; font-weight: 700;">SQL JOIN マスターする</span>
-                <span style="font-size: 11px; color: #10B981; font-family: 'JetBrains Mono', monospace;">+30 XP</span>
-              </div>
-              <div style="font-size: 11px; color: rgba(255,255,255,0.6);">予想25分 · 情報処理技能検定 D-7 核心</div>
-            </div>
-            <div style="padding: 12px; background: rgba(255,255,255,0.08); border-radius: var(--r-sm); border-left: 3px solid #86A0CD;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                <span style="font-size: 13px; font-weight: 700;">オペレーティングシステム・スレッド整理</span>
-                <span style="font-size: 11px; color: #86A0CD; font-family: 'JetBrains Mono', monospace;">+20 XP</span>
-              </div>
-              <div style="font-size: 11px; color: rgba(255,255,255,0.6);">予想15分 · 弱点領域補強</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="ad-slot">
-        <span class="ad-chip">広告</span>
-        <div class="ad-body">
-          <div class="ad-title">広告エリア</div>
-          <div class="ad-spec">Leaderboard 728×90</div>
-        </div>
-        <a href="../08_store/code.html" class="ad-upsell">広告なしで学習する →</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="two-col">
-
-        <div class="card elevated">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <div class="card-title" style="margin-bottom: 0;"><span class="icon">👥</span> 友達の活動</div>
-            <a href="#" style="font-size: 11px; color: var(--orange); font-weight: 600; text-decoration: none;">友達追加 →</a>
-          </div>
-          <div style="display: flex; flex-direction: column;">
-            <div class="feed-row">
-              <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #FFD700, #F59E0B); display: inline-flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">😎</span>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-size: 13px;"><strong style="color: var(--navy);">Study_King</strong>様が<strong style="color: var(--orange);">5時間連続学習</strong>達成</div>
-                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">たった今</div>
-              </div>
-              <span class="badge badge-success">+150 XP</span>
-            </div>
-            <div class="feed-row">
-              <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #F9A8D4, #DB2777); display: inline-flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">🦊</span>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-size: 13px;"><strong style="color: var(--navy);">うっかり妖精</strong>様が<strong style="color: var(--green);">夜更かしバッジ</strong>獲得</div>
-                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">15分前</div>
-              </div>
-              <span style="font-size: 18px;">🦉</span>
-            </div>
-            <div class="feed-row">
-              <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #FED7AA, var(--orange)); display: inline-flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">🐱</span>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-size: 13px;"><strong style="color: var(--navy);">奇跡の早朝民</strong>様の<strong style="color: var(--red);">黒歴史が公開されました</strong></div>
-                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">1時間前</div>
-              </div>
-              <a href="../05_community/code.html" style="font-size: 11px; color: var(--orange); font-weight: 600; text-decoration: none;">見る →</a>
-            </div>
-            <div class="feed-row">
-              <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #DDD6FE, #8B5CF6); display: inline-flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">🦄</span>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-size: 13px;"><strong style="color: var(--navy);">ブンバスティック</strong>様のQnA回答が<strong style="color: var(--green);">ベストアンサーに採用</strong></div>
-                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">3時間前</div>
-              </div>
-              <span class="badge badge-success">+30 XP</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card elevated">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <div class="card-title" style="margin-bottom: 0;"><span class="icon">📢</span> 進行中イベント / お知らせ</div>
-            <a href="#" style="font-size: 11px; color: var(--orange); font-weight: 600; text-decoration: none;">全体を見る →</a>
-          </div>
-          <div class="notice-list">
-            <div class="notice-item">
-              <span class="tag event">イベント</span>
-              <div>
-                <div class="text">試験期間チャレンジ — 「今週50時間認証」</div>
-                <div class="date">6/1 ~ 6/15 進行 · 参加者1,250名 · <strong style="color: var(--orange);">参加で+500 XP</strong></div>
-              </div>
-            </div>
-            <div class="notice-item">
-              <span class="tag">お知らせ</span>
-              <div>
-                <div class="text">安全モニタリングシステム v2.0 アップデート</div>
-                <div class="date">2026-05-24</div>
-              </div>
-            </div>
-            <div class="notice-item">
-              <span class="tag event">イベント</span>
-              <div>
-                <div class="text">友達招待時、双方1週間プレミアム無料</div>
-                <div class="date">常時進行</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+   
+    <a href="04_mypage/code.html">マイページ</a>
+    <a href="27_my_vault/code.html">黒歴史封印所</a>
 
   </div>
 
-  <div class="footer" style="margin-top: 48px;">
-    <div>© 2026 学習ヘルパー (LearnGuard). All rights reserved.</div>
-    <div class="footer-links">
-      <a href="#">サービス紹介</a>
-      <a href="#">利用規約</a>
-      <a href="#">個人情報処理方針</a>
-      <a href="#">カスタマーセンター</a>
-    </div>
-  </div>
+  
 
-  <div class="screen-id">P-FE-MN-05 · / (ログイン状態)</div>
 </div>
-
-<script>
-  function closeAllPopups() {
-    var n = document.getElementById('notifPopup');
-    var p = document.getElementById('profilePopup');
-    if (n) n.style.display = 'none';
-    if (p) p.style.display = 'none';
-    var chip = document.getElementById('userChip');
-    if (chip) chip.setAttribute('aria-expanded', 'false');
-  }
-  function toggleNotif(e) {
-    e.stopPropagation();
-    var n = document.getElementById('notifPopup');
-    var willOpen = (n.style.display === 'none' || !n.style.display);
-    closeAllPopups();                        // 他のポップアップ(プロフィール)を先に閉じる
-    n.style.display = willOpen ? 'block' : 'none';
-  }
-  function toggleProfile(e) {
-    e.stopPropagation();
-    var p = document.getElementById('profilePopup');
-    var willOpen = (p.style.display === 'none' || !p.style.display);
-    closeAllPopups();                        // 他のポップアップ(通知)を先に閉じる
-    p.style.display = willOpen ? 'block' : 'none';
-    var chip = document.getElementById('userChip');
-    if (chip) chip.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-  }
-  document.addEventListener('click', closeAllPopups);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeAllPopups();
-  });
-</script>
 </body>
 </html>
