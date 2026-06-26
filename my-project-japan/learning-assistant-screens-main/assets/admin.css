@@ -1,0 +1,161 @@
+/* ──────────────────────────────────────────────
+   Admin Console Shared Styles
+   ────────────────────────────────────────────── */
+
+html, body { background: #1E293B; }
+
+.admin-topbar {
+  background: #15212F;
+  color: var(--white);
+  padding: 0 32px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-topbar .brand { font-family: 'Hanken Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+.admin-topbar .brand::before {
+  content: '';
+  width: 28px; height: 28px;
+  background: url('./logo.svg') no-repeat center / contain;
+  flex-shrink: 0;
+}
+.admin-topbar .brand .badge-admin { background: var(--red); color: var(--white); padding: 2px 8px; border-radius: var(--r-sm); font-size: 10px; margin-left: 8px; letter-spacing: 0.1em; }
+.admin-topbar .right { display: flex; gap: 16px; align-items: center; font-size: 13px; color: rgba(255,255,255,0.7); }
+
+.admin-shell { display: table; width: 100%; table-layout: fixed; }
+.admin-sidebar {
+  width: 240px;
+  background: #15212F;
+  color: var(--white);
+  display: table-cell;
+  vertical-align: top;
+  padding: 24px 12px;
+}
+.admin-sidebar-section { font-size: 10px; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); text-transform: uppercase; padding: 12px 16px 8px; font-weight: 700; }
+.admin-sidebar a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; border-radius: var(--r-sm);
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  font-size: 13px; font-weight: 500;
+}
+.admin-sidebar a.active { background: rgba(255,92,0,0.15); color: var(--orange); font-weight: 700; }
+.admin-sidebar a .icon { width: 18px; text-align: center; }
+.admin-sidebar a .count { margin-left: auto; background: var(--red); color: var(--white); font-size: 10px; padding: 2px 6px; border-radius: var(--r-full); font-weight: 700; }
+
+.admin-main {
+  display: table-cell; vertical-align: top; padding: 24px 32px; background: #1E293B;
+  color: rgba(255,255,255,0.9);
+  /* Dark mode: CSS 변수 재정의로 자식 요소의 var() 자동 다크 적용 */
+  --white: #2A3A55;
+  --neutral-50: #2A3A55;
+  --neutral-100: #34465F;
+  --neutral-200: rgba(255,255,255,0.1);
+  --neutral-300: rgba(255,255,255,0.15);
+  --neutral-400: rgba(255,255,255,0.4);
+  --neutral-500: rgba(255,255,255,0.6);
+  --neutral-700: rgba(255,255,255,0.85);
+  --neutral-900: rgba(255,255,255,1);
+  /* Alert box soft tones — 의미 색 유지하되 다크 톤으로 */
+  --red-soft: rgba(239,68,68,0.12);
+  --red-soft-2: rgba(239,68,68,0.12);   /* badge-danger·활동 기록 실패 다크모드 변형 */
+  --orange-soft: rgba(255,92,0,0.12);
+  --info-soft: rgba(59,130,246,0.12);
+  --green-soft: rgba(16,185,129,0.12);
+  --green-soft-2: rgba(16,185,129,0.10); /* 더 연한 녹색 다크모드 변형 */
+  /* 브랜드 컬러: 다크 모드에서 더 밝은 톤으로 — 가시성 확보 */
+  --navy: #3B82F6;
+  --navy-deep: #1E3A8A;
+  --navy-light: #60A5FA;
+}
+
+/* 인라인 color: var(--white) 사용처 강제 흰색 (var(--white)가 카드 배경 다크 톤으로 재정의됐기 때문) */
+.admin-main *[style*="color: var(--white)"] { color: #FFFFFF !important; }
+.admin-main *[style*="color:var(--white)"] { color: #FFFFFF !important; }
+
+/* 액션 버튼 (.btn-secondary) — 처리·검토·답변 등 긍정적 액션은 초록 톤 */
+.admin-main .btn-secondary {
+  background: rgba(16,185,129,0.12);
+  color: #6EE7B7;
+  border-color: rgba(16,185,129,0.4);
+}
+
+/* 배지 (.badge-*) — 다크 모드 의미 색 (Lv.X, 상태 라벨 등) */
+.admin-main .badge-success { background: rgba(16,185,129,0.18); color: #6EE7B7; }
+.admin-main .badge-warning { background: rgba(245,158,11,0.18);  color: #FCD34D; }
+.admin-main .badge-danger  { background: rgba(239,68,68,0.18);   color: #FCA5A5; }
+.admin-main .badge-info    { background: rgba(59,130,246,0.18);  color: #93C5FD; }
+.admin-main .badge-navy    { background: rgba(59,130,246,0.25);  color: #FFFFFF; }
+
+/* Dark mode override: 인라인 토큰(var(--red-soft) 등) 사용처 강제 변경 */
+/* 배경: 모든 요소 (div, tr, td 등) */
+.admin-main *[style*="var(--red-soft)"], .admin-main *[style*="var(--red-soft-2)"] { background-color: rgba(239,68,68,0.12) !important; }
+.admin-main *[style*="#FFF7ED"], .admin-main *[style*="#FFFBEB"], .admin-main *[style*="#FEF3C7"] { background-color: rgba(255,92,0,0.12) !important; }
+.admin-main *[style*="var(--green-soft-2)"], .admin-main *[style*="var(--green-soft)"] { background-color: rgba(16,185,129,0.12) !important; }
+.admin-main *[style*="#DBEAFE"], .admin-main *[style*="#EFF6FF"] { background-color: rgba(59,130,246,0.12) !important; }
+
+/* 텍스트 색: alert div만 (테이블 행은 디폴트 흰색 inherit) */
+.admin-main div[style*="var(--red-soft)"], .admin-main div[style*="var(--red-soft-2)"] { color: #FCA5A5 !important; }
+.admin-main div[style*="#FFF7ED"], .admin-main div[style*="#FFFBEB"], .admin-main div[style*="#FEF3C7"] { color: #FCD34D !important; }
+.admin-main div[style*="var(--green-soft-2)"], .admin-main div[style*="var(--green-soft)"] { color: #6EE7B7 !important; }
+.admin-main div[style*="#DBEAFE"], .admin-main div[style*="#EFF6FF"] { color: #93C5FD !important; }
+/* 어두운 텍스트 색 → 밝은 의미 색으로 */
+.admin-main *[style*="color: #991B1B"] { color: #FCA5A5 !important; }
+.admin-main *[style*="color: #92400E"] { color: #FCD34D !important; }
+.admin-main *[style*="color: #1E40AF"] { color: #93C5FD !important; }
+.admin-main *[style*="color: #065F46"] { color: #6EE7B7 !important; }
+.admin-main *[style*="color: #B45309"] { color: #FCD34D !important; }
+.admin-main *[style*="color: #6D28D9"] { color: #C4B5FD !important; }
+.admin-main *[style*="color: #3730A3"] { color: #A5B4FC !important; }
+
+.admin-page-title { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.admin-page-title h1 { font-size: 22px; font-weight: 700; color: #FFFFFF; }
+.admin-page-title p { font-size: 13px; color: var(--neutral-500); margin-top: 4px; }
+
+/* Table */
+.admin-table {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--r-md);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+.admin-table th {
+  background: var(--neutral-50);
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--neutral-500);
+  text-align: left;
+  border-bottom: 1px solid var(--neutral-200);
+}
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--neutral-200);
+  color: var(--neutral-700);
+}
+.admin-table tr:last-child td { border-bottom: 0; }
+.admin-table tr:hover td { background: var(--neutral-50); }
+
+.admin-kpi-card {
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--r-md);
+  padding: 20px;
+}
+.admin-kpi-card .label { font-size: 12px; color: var(--neutral-500); font-weight: 600; }
+.admin-kpi-card .value { font-family: 'Hanken Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF; margin: 8px 0 4px; }
+.admin-kpi-card .delta { font-size: 12px; color: var(--green); font-weight: 700; }
+.admin-kpi-card .delta.down { color: var(--red); }
+
+@media (max-width: 480px) {
+  .admin-shell { display: block !important; }
+  .admin-sidebar { display: none !important; }
+  .admin-main { display: block !important; padding: 16px !important; }
+  .admin-topbar { padding: 0 16px !important; }
+  .admin-topbar .right { gap: 8px !important; font-size: 11px !important; }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>ショップアイテム管理 — 学習サポーター管理者</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/admin.css">
+<style>
+  @page { size: 1280px 900px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 900px; position: relative; }
+  .toggle { width: 36px; height: 20px; background: var(--green); border-radius: 999px; position: relative; display: inline-block; }
+  .toggle::after { content:''; width: 16px; height: 16px; background: var(--white); border-radius: 50%; position: absolute; top: 2px; right: 2px; }
+  .toggle.off { background: var(--neutral-300); }
+  .toggle.off::after { right: auto; left: 2px; }
+</style></head>
+<body>
+<div class="page">
+  <div class="admin-topbar">
+    <div class="brand">学習サポーター<span class="badge-admin">管理者</span></div>
+    <div class="right"><span>👤 管理者キム</span><span>⚙️</span><span>🚪 ログアウト</span></div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-section">概要</div>
+      <a href="../20_admin_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+      <div class="admin-sidebar-section">管理</div>
+      <a href="../21_admin_users/code.html"><span class="icon">👥</span>会員管理</a>
+      <a href="../22_admin_posts/code.html"><span class="icon">📝</span>掲示板管理<span class="count">12</span></a>
+      <a href="#" class="active"><span class="icon">🛒</span>ショップアイテム</a>
+      <a href="../24_admin_promo/code.html"><span class="icon">📢</span>広告・イベント</a>
+      <a href="../25_admin_inquiry/code.html"><span class="icon">💬</span>1:1問い合わせ<span class="count">23</span></a>
+      <div class="admin-sidebar-section">システム</div>
+      <a href="../26_admin_roles/code.html"><span class="icon">🔐</span>権限管理</a>
+      <a href="#"><span class="icon">📜</span>監査ログ</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-page-title">
+        <div>
+          <h1>🛒 ショップアイテム管理</h1>
+          <p>合計32種が有効 · 累計販売 12,438件 · 今月の売上 1.2M ₩</p>
+        </div>
+        <a href="#" class="btn btn-primary btn-sm">+ 新規アイテム登録</a>
+      </div>
+
+      <div style="display: flex; gap: 4px; margin-bottom: 16px;">
+        <span style="padding: 6px 14px; background: var(--navy); color: var(--white); border-radius: var(--r-sm); font-size: 12px; font-weight: 700;">全体 32</span>
+        <span style="padding: 6px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">アバター 8</span>
+        <span style="padding: 6px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">バッジ 12</span>
+        <span style="padding: 6px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">クーポン 7</span>
+        <span style="padding: 6px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">プレミアム 3</span>
+        <span style="padding: 6px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">非活性 2</span>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr><th style="width: 50px;">ID</th><th style="width: 50px;"></th><th>名前</th><th style="width: 100px;">カテゴリー</th><th style="width: 90px;">価格</th><th style="width: 90px;">在庫</th><th style="width: 90px;">販売数</th><th style="width: 100px;">売上</th><th style="width: 70px;">状態</th><th style="width: 80px;">作業</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td style="font-size: 22px;">🦊</td><td><strong>黄金のキツネアバター</strong><br><span style="font-size: 11px; color: var(--neutral-500);">2026-04-15登録</span></td><td><span class="badge badge-info">アバター</span></td><td><strong>100 P</strong></td><td>無制限</td><td>1,234</td><td>123,400 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>2</td><td style="font-size: 22px;">🎓</td><td><strong>卒業帽子バッジ</strong></td><td><span class="badge badge-info">バッジ</span></td><td><strong>50 P</strong></td><td>無制限</td><td>856</td><td>42,800 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>3</td><td style="font-size: 22px;">🌙</td><td><strong>ダークモードテーマ</strong></td><td><span class="badge badge-info">アバター</span></td><td><strong>200 P</strong></td><td>無制限</td><td>720</td><td>144,000 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>4</td><td style="font-size: 22px;">📚</td><td><strong>オンライン講義20%割引クーポン</strong><br><span style="font-size: 11px; color: var(--neutral-500);">提携: Hackers/Eduwill</span></td><td><span class="badge badge-success">クーポン</span></td><td><strong>500 P</strong></td><td>100/月</td><td>45</td><td>22,500 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>5</td><td style="font-size: 22px;">💎</td><td><strong>プレミアム1週間利用権</strong></td><td><span class="badge badge-warning">プレミアム</span></td><td><strong>300 P</strong></td><td>無制限</td><td>2,180</td><td>654,000 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>6</td><td style="font-size: 22px;">📖</td><td><strong>図書商品券 10,000ウォン</strong></td><td><span class="badge badge-success">クーポン</span></td><td><strong>1,500 P</strong></td><td><span style="color: var(--red);">12 / 50</span></td><td>38</td><td>57,000 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>7</td><td style="font-size: 22px;">☕</td><td><strong>カフェクーポン (スターバックス)</strong></td><td><span class="badge badge-success">クーポン</span></td><td><strong>800 P</strong></td><td>50/週</td><td>156</td><td>124,800 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr><td>8</td><td style="font-size: 22px;">🎁</td><td><strong>ランダムポイントボックス</strong><br><span style="font-size: 11px; color: var(--neutral-500);">50~500 Pランダム (平均 240 P)</span></td><td><span class="badge badge-info">その他</span></td><td><strong>100 P</strong></td><td>無制限</td><td>3,420</td><td>342,000 P</td><td><span class="toggle"></span></td><td>編集 ⋮</td></tr>
+          <tr style="opacity: 0.5;"><td>9</td><td style="font-size: 22px;">🌟</td><td><strong>特別イベントパック (シーズンオフ)</strong></td><td><span class="badge badge-warning">プレミアム</span></td><td>700 P</td><td>販売終了</td><td>522</td><td>365,400 P</td><td><span class="toggle off"></span></td><td>編集 ⋮</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+  <div class="screen-id">P-BE-IT-00 · /admin/items</div>
+</div>
+</body></html>

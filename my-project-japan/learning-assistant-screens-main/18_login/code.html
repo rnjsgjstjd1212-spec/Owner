@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>ログイン — 学習サポーター</title><link rel="stylesheet" href="../assets/style.css">
+<style>
+  @page { size: 1280px 900px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 900px; position: relative; background: var(--neutral-50); }
+  .login-shell { display: flex; align-items: center; justify-content: center; min-height: 850px; padding: 40px; }
+  .login-card { background: var(--white); border-radius: var(--r-lg); padding: 56px; max-width: 460px; width: 100%; border: 1px solid var(--neutral-200); }
+  .input-field { display: block; width: 100%; padding: 14px 16px; border: 1.5px solid var(--neutral-200); border-radius: var(--r-md); font-size: 14px; }
+  .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 44px; border-radius: var(--r-md); font-weight: 600; font-size: 13px; border: 1px solid var(--neutral-200); text-decoration: none; }
+  .social-btn.kakao { background: #FEE500; }
+  .social-btn.naver { background: #03C75A; color: var(--white); }
+</style></head>
+<body>
+<div class="page">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid var(--neutral-200); background: var(--white);">
+    <a href="../01_main/code.html" style="text-decoration: none; color: var(--neutral-500); font-size: 14px;">← メインへ戻る</a>
+    <div style="font-family: 'Hanken Grotesk', sans-serif; font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 24px; height: 24px; background: url('../assets/logo.svg') no-repeat center / contain;"></span>学習サポーター</div>
+    <span style="width: 80px;"></span>
+  </div>
+
+  <div class="login-shell">
+    <div class="login-card">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <div style="width: 64px; height: 64px; border-radius: 16px; background: var(--navy); display: inline-flex; align-items: center; justify-content: center; font-size: 28px; color: var(--white); margin-bottom: 12px;">📘</div>
+        <h1 style="font-size: 26px; font-weight: 700; color: var(--neutral-900);">おかえりなさい</h1>
+        <p style="font-size: 13px; color: var(--neutral-500); margin-top: 6px;">学習の旅を続けましょう</p>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <label style="font-size: 12px; font-weight: 600; color: var(--neutral-700); margin-bottom: 6px; display: block;">メールアドレス</label>
+        <input class="input-field" value="[email protected]" readonly>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label style="font-size: 12px; font-weight: 600; color: var(--neutral-700); margin-bottom: 6px; display: block;">パスワード</label>
+        <input class="input-field" type="password" value="••••••••" readonly>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 20px;">
+        <label style="display: flex; align-items: center; gap: 6px; color: var(--neutral-700);">
+          <span style="width: 16px; height: 16px; background: var(--orange); border-radius: 3px; color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: 10px;">✓</span>
+          自動ログイン
+        </label>
+        <a href="#" style="color: var(--neutral-500); text-decoration: none;">パスワードを忘れた場合 →</a>
+      </div>
+
+      <a href="../01b_main_logged_in/code.html" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 48px; border-radius: var(--r-md); background: var(--orange); color: var(--white); font-weight: 700; font-size: 14px; text-decoration: none; margin-bottom: 20px;">
+        ログイン
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <div style="flex: 1; height: 1px; background: var(--neutral-200);"></div>
+        <span style="font-size: 11px; color: var(--neutral-400);">SNSアカウントでログイン</span>
+        <div style="flex: 1; height: 1px; background: var(--neutral-200);"></div>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+        <a href="../01b_main_logged_in/code.html" class="social-btn kakao" style="text-decoration: none; color: var(--neutral-900); flex: 1;">💬 カカオ</a>
+        <a href="../01b_main_logged_in/code.html" class="social-btn naver" style="text-decoration: none; flex: 1;">N NAVER</a>
+      </div>
+
+      <div style="text-align: center; font-size: 13px; color: var(--neutral-500);">
+        初めての方ですか？
+        <a href="../09_signup_01_method/code.html" style="color: var(--orange); font-weight: 700; text-decoration: none;">会員登録 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-id">P-FE-LI-00 · /auth/login</div>
+</div>
+</body></html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>学習統計·レポート — 学習サポーター</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1000px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1000px; position: relative; }
+    .donut {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(var(--green) 0% 71%, var(--neutral-200) 71% 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .donut::before { content: ''; position: absolute; width: 84px; height: 84px; border-radius: 50%; background: var(--white); }
+    .donut .num { position: relative; font-family: 'Hanken Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--green); }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習サポーター</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="#" class="active">学習</a>
+      <a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ショップ</a>
+      <a href="../35_info_notice/code.html">情報</a>
+      <a href="../36_support_faq/code.html">カスタマーセンター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info"><div class="name">挑戦</div><div class="meta">マスター学習者 · Lv. 12</div></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../02_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+        <a href="../03_session/code.html"><span class="icon">⏱</span>学習セッション</a>
+        <a href="#" class="active"><span class="icon">📈</span>統計·レポート</a>
+        <a href="../07_ai/code.html"><span class="icon">🤖</span>AIサポーター</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <h1 class="h1" style="margin-bottom: 4px;">こんにちは、挑戦さん 👋 今週の学習レポートです。</h1>
+      <p class="body" style="color: var(--neutral-500); margin-bottom: 24px;">目標達成まで着実に進んでいます。集中力を維持しましょう。</p>
+
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 24px;">
+        <div class="tabs">
+          <div class="tab">日次</div>
+          <div class="tab active">週次</div>
+          <div class="tab">月次</div>
+          <div class="tab">累積</div>
+        </div>
+        <div style="margin-left: auto; padding: 8px 16px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-md); font-size: 13px; font-weight: 600;">全科目 ▾</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div class="card stat-card">
+          <div class="label">⏱ 総学習時間</div>
+          <div class="value">18h 45m</div>
+          <div class="delta">↑ 先週比 +2h 30m</div>
+        </div>
+        <div class="card stat-card">
+          <div class="label">🎯 目標達成率</div>
+          <div class="value">5/7 <span style="font-size: 16px; color: var(--neutral-400);">日 · 71%</span></div>
+          <div class="progress-track" style="margin-top: 8px;">
+            <div class="progress-fill green" style="width: 71%;"></div>
+          </div>
+        </div>
+        <div class="card stat-card">
+          <div class="label">🔥 連続学習</div>
+          <div class="value" style="color: var(--orange);">14日連続!</div>
+          <div style="display: flex; gap: 3px; margin-top: 8px;">
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--green); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--orange); border-radius: 3px;"></span>
+            <span style="display: inline-block; width: 18px; height: 18px; background: var(--neutral-200); border-radius: 3px;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--info-soft); border-left: 4px solid var(--info); border-radius: var(--r-sm); padding: 16px 20px; margin-bottom: 16px;">
+        <div style="font-weight: 700; font-size: 13px; color: #1E40AF; margin-bottom: 4px;">🤖 AI学習分析コメント</div>
+        <p style="font-size: 13px; color: #1E40AF; line-height: 1.6;">
+          今週はデータベースの集中度が高いですね！目標達成のために、週末はオペレーティングシステムの学習量を少し増やしてみることをお勧めします。また、学習開始時間が徐々に遅くなるパターンが見られるので、来週は朝学習へシフトしてみてください。
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px;">
+        <div class="card">
+          <div class="card-title">📊 日別学習時間</div>
+          <div style="display: grid; grid-template-columns: 40px 1fr; gap: 8px; height: 220px;">
+            <div style="display: flex; flex-direction: column; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--neutral-400); text-align: right;">
+              <div>5h</div><div>4h</div><div>3h</div><div>2h</div><div>1h</div><div>0</div>
+            </div>
+            <div style="display: flex; align-items: flex-end; gap: 12px; border-left: 1px solid var(--neutral-200); border-bottom: 1px solid var(--neutral-200); padding: 0 8px 0 12px;">
+              <div style="flex: 1; height: 50%; background: var(--orange); border-radius: 4px 4px 0 0;"></div>
+              <div style="flex: 1; height: 60%; background: var(--orange); border-radius: 4px 4px 0 0;"></div>
+              <div style="flex: 1; height: 80%; background: var(--orange); border-radius: 4px 4px 0 0;"></div>
+              <div style="flex: 1; height: 40%; background: var(--orange); border-radius: 4px 4px 0 0;"></div>
+              <div style="flex: 1; height: 70%; background: var(--orange); border-radius: 4px 4px 0 0;"></div>
+              <div style="flex: 1; height: 90%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
+              <div style="flex: 1; height: 65%; background: var(--orange); border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 40px 1fr; gap: 8px; margin-top: 4px;">
+            <div></div>
+            <div style="display: flex; gap: 12px; padding-left: 12px;">
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--neutral-400);">月</div>
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--neutral-400);">火</div>
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--neutral-400);">水</div>
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--neutral-400);">木</div>
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--neutral-400);">金</div>
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--neutral-400);">土</div>
+              <div style="flex: 1; text-align: center; font-size: 11px; color: var(--orange); font-weight: 700;">日</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🎯 科目別集中度</div>
+          <div style="display: flex; justify-content: center; margin: 16px 0;">
+            <div class="donut"><span class="num">71%</span></div>
+          </div>
+          <div style="text-align: center; font-size: 12px; color: var(--neutral-500); margin-bottom: 16px;">達成</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 600;">データベース</span>
+                <span style="color: var(--neutral-500); font-family: 'JetBrains Mono', monospace;">45%</span>
+              </div>
+              <div class="progress-track" style="height: 6px;"><div class="progress-fill" style="width: 45%; background: var(--navy);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 600;">アルゴリズム</span>
+                <span style="color: var(--neutral-500); font-family: 'JetBrains Mono', monospace;">23%</span>
+              </div>
+              <div class="progress-track" style="height: 6px;"><div class="progress-fill" style="width: 23%; background: var(--orange);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 600;">オペレーティングシステム</span>
+                <span style="color: var(--neutral-500); font-family: 'JetBrains Mono', monospace;">15%</span>
+              </div>
+              <div class="progress-track" style="height: 6px;"><div class="progress-fill" style="width: 15%; background: var(--green);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                <span style="font-weight: 600;">その他</span>
+                <span style="color: var(--neutral-500); font-family: 'JetBrains Mono', monospace;">17%</span>
+              </div>
+              <div class="progress-track" style="height: 6px;"><div class="progress-fill" style="width: 17%; background: var(--neutral-400);"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-ST-10 · /study/stats</div>
+</div>
+</body>
+</html>

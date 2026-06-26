@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>黒歴史封印所 — 学習サポーター</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1200px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1200px; position: relative; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習サポーター</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ストア</a>
+      <a href="../35_info_notice/code.html">情報</a>
+      <a href="../36_support_faq/code.html">カスタマーセンター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+        <div>
+          <h1 class="h1">🔒 黒歴史封印所</h1>
+          <p class="body" style="color: var(--neutral-500); margin-top: 6px;">学習失敗時に自動公開される黒歴史コンテンツを管理します。</p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <a href="../04_mypage/code.html" class="btn btn-secondary btn-sm">← マイページ</a>
+          <a href="#" class="btn btn-primary btn-sm">+ 新しい黒歴史を追加</a>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div class="card-title" style="margin-bottom: 0;"><span class="icon">🔒</span> 合計封印コンテンツ</div>
+            <span class="label-mono" style="font-size: 9px;">REGISTERED</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <div style="font-size: 36px; font-weight: 700; color: var(--navy); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">6</div>
+            <div style="font-size: 13px; color: var(--neutral-500);">件 登録済み</div>
+          </div>
+          <div style="font-size: 11px; color: var(--neutral-400); margin-top: 6px; font-family: 'JetBrains Mono', monospace;">合計容量 · 12.4 MB</div>
+        </div>
+
+        <div class="card" style="background: var(--orange-soft); border-color: var(--amber); border-width: 1.5px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div class="card-title" style="margin-bottom: 0; color: var(--amber);"><span class="icon">⚠️</span> システム安全等級</div>
+            <span class="label-mono" style="font-size: 9px; color: var(--amber);">WARNING</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <div style="font-size: 28px; font-weight: 700; color: var(--amber); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">注意</div>
+            <div style="font-size: 12px; color: var(--amber); font-family: 'JetBrains Mono', monospace; font-weight: 600;">· 危険度 75%</div>
+          </div>
+          <div class="progress-track" style="height: 6px; background: rgba(245,158,11,0.18); margin-top: 10px;">
+            <div class="progress-fill" style="width: 75%; background: var(--amber);"></div>
+          </div>
+        </div>
+
+        <div class="risk-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="label">🕒 次の検証</div>
+            <span class="label-mono" style="font-size: 9px; color: var(--red);">PENDING</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 10px;">
+            <div style="font-size: 22px; font-weight: 700; color: var(--red); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">本日 23:59</div>
+          </div>
+          <div style="font-size: 11px; color: var(--red); margin-top: 4px;">週間学習目標まであと4.5時間不足</div>
+          <a href="../03_session/code.html" class="btn btn-danger btn-sm" style="width: 100%; margin-top: 12px;">今すぐ学習を開始 →</a>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h2 class="h2" style="margin: 0;">封印されたコンテンツ</h2>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <span class="badge badge-navy">全体 6</span>
+          <span class="badge badge-info">📷 写真 2</span>
+          <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">🎬 動画 1</span>
+          <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">📝 テキスト 2</span>
+          <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">🎤 音声 1</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+
+        <div class="card" style="padding: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span class="badge badge-info">📷 写真</span>
+            <span class="badge badge-success">✓ 安全</span>
+          </div>
+          <div style="background: var(--neutral-200); height: 100px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: 12px;">📷</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">中2の時の恥ずかしい自撮り</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">
+            <div>封印日 <span style="font-family: 'JetBrains Mono', monospace; color: var(--neutral-700);">2025-12-15</span></div>
+            <div>公開トリガー <span style="color: var(--neutral-700);">週間学習目標未達成時</span></div>
+            <div>公開対象 <span style="color: var(--neutral-700);">📱 Instagramの友達30人</span></div>
+          </div>
+          <div style="display: flex; gap: 12px; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 11px;">
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">プレビュー</a>
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">条件修正</a>
+            <a href="#" style="color: var(--red); text-decoration: none;">削除</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">🎬 動画</span>
+            <span class="badge badge-warning">⚠ 注意</span>
+          </div>
+          <div style="background: var(--neutral-200); height: 100px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: 12px; position: relative;">
+            🎬
+            <span style="position: absolute; bottom: 6px; right: 8px; background: rgba(0,0,0,0.7); color: var(--white); font-size: 10px; padding: 2px 6px; border-radius: var(--r-sm); font-family: 'JetBrains Mono', monospace;">00:47</span>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">カラオケの音痴動画</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">
+            <div>封印日 <span style="font-family: 'JetBrains Mono', monospace; color: var(--neutral-700);">2026-01-08</span></div>
+            <div>公開トリガー <span style="color: var(--neutral-700);">毎日出席3日連続未達成時</span></div>
+            <div>公開対象 <span style="color: var(--neutral-700);">💬 カカオトークの友達50人</span></div>
+          </div>
+          <div style="display: flex; gap: 12px; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 11px;">
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">プレビュー</a>
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">条件修正</a>
+            <a href="#" style="color: var(--red); text-decoration: none;">削除</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">📝 テキスト</span>
+            <span class="badge badge-success">✓ 安全</span>
+          </div>
+          <div style="background: var(--neutral-100); height: 100px; border-radius: var(--r-sm); padding: 12px; margin-bottom: 12px; overflow: hidden;">
+            <div style="font-size: 11px; color: var(--neutral-400); font-style: italic; line-height: 1.5;">その人を初めて見た瞬間、心臓が止まるかと思った。図書館3階の窓際席、日差しが差し込むその姿は…</div>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">告白失敗後の日記（長文）</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">
+            <div>封印日 <span style="font-family: 'JetBrains Mono', monospace; color: var(--neutral-700);">2026-02-22</span></div>
+            <div>公開トリガー <span style="color: var(--neutral-700);">試験D-7まで学習時間30時間未満</span></div>
+            <div>公開対象 <span style="color: var(--neutral-700);">📘 Facebookの友達</span></div>
+          </div>
+          <div style="display: flex; gap: 12px; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 11px;">
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">プレビュー</a>
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">条件修正</a>
+            <a href="#" style="color: var(--red); text-decoration: none;">削除</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span class="badge badge-info">📷 写真</span>
+            <span class="badge badge-success">✓ 安全</span>
+          </div>
+          <div style="background: var(--neutral-200); height: 100px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: 12px;">📷</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">ニキビ全盛期の卒業アルバム</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">
+            <div>封印日 <span style="font-family: 'JetBrains Mono', monospace; color: var(--neutral-700);">2026-03-10</span></div>
+            <div>公開トリガー <span style="color: var(--neutral-700);">月累計学習80時間未満</span></div>
+            <div>公開対象 <span style="color: var(--neutral-700);">👨‍👩‍👧 両親のカカオトーク</span></div>
+          </div>
+          <div style="display: flex; gap: 12px; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 11px;">
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">プレビュー</a>
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">条件修正</a>
+            <a href="#" style="color: var(--red); text-decoration: none;">削除</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 16px; border: 1.5px solid var(--red); background: var(--red-soft);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">🎤 音声</span>
+            <span class="badge" style="background: var(--red); color: var(--white);">🔴 危険</span>
+          </div>
+          <div style="background: var(--white); height: 100px; border-radius: var(--r-sm); display: flex; align-items: flex-end; justify-content: center; gap: 3px; padding: 14px; margin-bottom: 12px;">
+            <div style="width: 4px; height: 30%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 60%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 45%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 85%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 70%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 95%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 55%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 80%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 40%; background: var(--red); border-radius: 2px;"></div>
+            <div style="width: 4px; height: 65%; background: var(--red); border-radius: 2px;"></div>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">酔った勢いの本音録音（3分22秒）</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">
+            <div>封印日 <span style="font-family: 'JetBrains Mono', monospace; color: var(--neutral-700);">2026-04-30</span></div>
+            <div style="color: var(--red); font-weight: 700;">⚠ 本日の学習未開始 → 23:59 自動公開</div>
+            <div>公開対象 <span style="color: var(--neutral-700);">👥 学科の団体トーク (47人)</span></div>
+          </div>
+          <a href="../03_session/code.html" class="btn btn-danger btn-sm" style="width: 100%;">今すぐ学習を開始 →</a>
+        </div>
+
+        <div class="card" style="padding: 16px; opacity: 0.7;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span class="badge" style="background: var(--neutral-100); color: var(--neutral-700);">📝 テキスト</span>
+            <span class="badge" style="background: var(--neutral-400); color: var(--white);">🌐 公開済み</span>
+          </div>
+          <div style="background: var(--neutral-100); height: 100px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: 12px;">🔓</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">黒歴史反省文（長文）</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">
+            <div>公開日 <span style="font-family: 'JetBrains Mono', monospace; color: var(--neutral-700);">2026-05-20</span></div>
+            <div>理由 <span style="color: var(--neutral-700);">先週未達成のため公開完了</span></div>
+            <div>公開場所 <span style="color: var(--neutral-700);">📱 Instagramで公開</span></div>
+          </div>
+          <div style="display: flex; gap: 12px; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 11px;">
+            <a href="#" style="color: var(--neutral-500); text-decoration: none;">公開された記事を見る</a>
+            <span style="color: var(--neutral-300); text-decoration: line-through;">再封印する (不可)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">🛡</span> 封印システムのご案内</div>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; font-size: 13px; color: var(--neutral-700);">
+          <div style="display: flex; gap: 10px;"><span style="color: var(--orange); font-weight: 700; flex-shrink: 0;">1.</span><span>封印されたコンテンツは、学習目標を達成すれば安全です。未達成の場合は、設定された公開対象へ自動公開されます。</span></div>
+          <div style="display: flex; gap: 10px;"><span style="color: var(--orange); font-weight: 700; flex-shrink: 0;">2.</span><span>一度公開されたコンテンツは、24時間後に自動削除されます。</span></div>
+          <div style="display: flex; gap: 10px;"><span style="color: var(--orange); font-weight: 700; flex-shrink: 0;">3.</span><span>公開トリガーの12時間前に通知が送信されます。</span></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--neutral-50); border-radius: var(--r-md); margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px;">🛡</span>
+            <span style="font-size: 14px; font-weight: 600; color: var(--neutral-900);">黒歴史システム有効化</span>
+          </div>
+          <span class="badge badge-success">有効</span>
+        </div>
+
+        <div style="background: var(--red-soft); padding: 12px 14px; border-radius: var(--r-md); font-size: 12px; color: var(--red); display: flex; gap: 8px; align-items: flex-start;">
+          <span style="flex-shrink: 0;">⚠</span>
+          <span>システムを無効化すると、既に登録されている封印コンテンツがすべて自動削除されます。</span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-MY-05 · /my/vault</div>
+</div>
+</body>
+</html>

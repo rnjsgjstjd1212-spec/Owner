@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>学習セッション（集中モード） — 学習ドゥミ</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 800px; margin: 0; }
+    html { background: #0F172A; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; background: #0F172A; }
+    .page { width: 100%; max-width: 1280px; min-height: 800px; position: relative; background: #0F172A; color: #fff; }
+
+    .focus-bar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .focus-bar .brand { font-family: 'Hanken Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 10px; color: #fff; }
+    .focus-bar .brand .logo-mark { width: 32px; height: 32px; background: url('../assets/logo.svg') no-repeat center / contain; flex-shrink: 0; }
+    .focus-bar .brand .label { font-size: 10px; letter-spacing: 0.15em; color: var(--orange); margin-left: 4px; font-weight: 700; padding: 3px 8px; background: rgba(255,92,0,0.12); border-radius: var(--r-full); border: 1px solid rgba(255,92,0,0.3); }
+    .focus-bar .close { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.15s; }
+    .focus-bar .close:hover { background: rgba(255,255,255,0.12); }
+
+    .stage { display: grid; grid-template-columns: 260px 1fr 260px; min-height: calc(800px - 80px); align-items: stretch; }
+
+    .todo-panel { padding: 32px 24px; border-right: 1px solid rgba(255,255,255,0.05); }
+    .todo-panel h3 { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; font-family: 'Hanken Grotesk', sans-serif; }
+    .todo-item { padding: 14px 16px; border-radius: var(--r-md); background: rgba(255,255,255,0.04); margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+    .todo-item.active { background: rgba(255,92,0,0.15); border: 1px solid var(--orange); }
+    .todo-item.done .text { color: rgba(255,255,255,0.35); text-decoration: line-through; }
+    .todo-item .icon { font-size: 16px; }
+    .todo-item .text { flex: 1; font-size: 13px; }
+    .todo-item .meta { font-size: 11px; color: rgba(255,255,255,0.4); font-family: 'JetBrains Mono', monospace; }
+
+    .timer-center { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
+    .subject-pill { background: rgba(255,255,255,0.08); padding: 8px 18px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; margin-bottom: 20px; }
+    .cycle-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .circle-timer {
+      width: 360px; height: 360px; border-radius: 50%;
+      border: 16px solid rgba(255,92,0,0.2);
+      border-top-color: var(--orange); border-right-color: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .circle-timer .time { font-family: 'Hanken Grotesk', sans-serif; font-size: 80px; font-weight: 700; line-height: 1; }
+    .circle-timer .focus-label { position: absolute; bottom: 60px; font-size: 11px; letter-spacing: 0.05em; color: rgba(255,255,255,0.55); }
+
+    .controls { display: flex; gap: 16px; margin-top: 32px; }
+    .ctrl-btn { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; font-size: 22px; }
+    .ctrl-btn.stop { background: var(--red); width: 72px; height: 72px; }
+
+    .risk-banner { margin-top: 40px; background: rgba(239,68,68,0.15); border: 1.5px solid var(--red); border-radius: var(--r-md); padding: 16px 20px; display: flex; gap: 12px; align-items: center; }
+    .risk-banner .icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(239,68,68,0.3); display: inline-flex; align-items: center; justify-content: center; }
+    .risk-banner .title { color: var(--red); font-weight: 700; font-size: 14px; }
+    .risk-banner .desc { color: rgba(239,68,68,0.85); font-size: 12px; }
+
+    .webcam { padding: 32px 24px; border-left: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 12px; }
+    .webcam h3 { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; font-family: 'Hanken Grotesk', sans-serif; }
+    .webcam-frame { aspect-ratio: 4/3; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); border-radius: var(--r-md); position: relative; display: flex; align-items: center; justify-content: center; height: 180px; }
+    .live-dot { position: absolute; top: 10px; right: 10px; background: var(--green); color: #064E3B; padding: 4px 10px; border-radius: var(--r-full); font-size: 10px; font-weight: 700; }
+    .live-dot::before { content: '●'; margin-right: 4px; }
+    .detect-label { display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(16,185,129,0.1); border-radius: var(--r-sm); font-size: 11px; color: var(--green); }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="focus-bar">
+    <div class="brand"><span class="logo-mark"></span>学習ドゥミ<span class="label">集中モード</span></div>
+    <a href="../02_dashboard/code.html" class="close" style="color: #fff; text-decoration: none;">✕</a>
+  </div>
+
+  <div class="stage">
+    <div class="todo-panel">
+      <h3>今日の目標</h3>
+      <div class="todo-item done">
+        <span class="icon" style="color: var(--green);">✓</span>
+        <div style="flex: 1;">
+          <div class="text">データベース1回読了</div>
+          <div class="meta">完了 · 45分</div>
+        </div>
+      </div>
+      <div class="todo-item active">
+        <span class="icon" style="color: var(--orange);">▶</span>
+        <div style="flex: 1;">
+          <div class="text">SQL問題演習 50題</div>
+          <div class="meta" style="color: var(--orange);">進行中</div>
+        </div>
+      </div>
+      <div class="todo-item">
+        <span class="icon" style="color: rgba(255,255,255,0.3);">○</span>
+        <div style="flex: 1;">
+          <div class="text">誤答ノート整理</div>
+          <div class="meta">待機</div>
+        </div>
+      </div>
+      <div class="todo-item">
+        <span class="icon" style="color: rgba(255,255,255,0.3);">○</span>
+        <div style="flex: 1;">
+          <div class="text">オペレーティングシステム要点まとめ</div>
+          <div class="meta">待機</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px; padding: 16px; background: rgba(255,255,255,0.04); border-radius: var(--r-md); border: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <span style="font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 700;">セッション要約</span>
+          <span style="font-size: 11px; color: var(--orange); font-family: 'JetBrains Mono', monospace; font-weight: 700;">25%</span>
+        </div>
+        <div style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden; margin-bottom: 14px;">
+          <div style="height: 100%; width: 25%; background: linear-gradient(90deg, var(--orange), #FF7B33); border-radius: 999px;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <div style="font-size: 18px; font-weight: 700; color: #fff; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">1<span style="font-size: 12px; color: rgba(255,255,255,0.4);">/4</span></div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px;">完了項目</div>
+          </div>
+          <div>
+            <div style="font-size: 18px; font-weight: 700; color: var(--green); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">1h 20m</div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px;">累積学習</div>
+          </div>
+          <div>
+            <div style="font-size: 18px; font-weight: 700; color: #FBBF24; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">24:59</div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px;">次の休憩</div>
+          </div>
+          <div>
+            <div style="font-size: 18px; font-weight: 700; color: var(--orange); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">+85</div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px;">獲得XP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timer-center">
+      <div class="subject-pill">📘 情報処理技師 学習中</div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 600;">ポモドーロ</span>
+          <span style="font-size: 14px; color: var(--orange); font-weight: 700; font-family: 'JetBrains Mono', monospace;">2 / 4</span>
+          <span style="font-size: 12px; color: rgba(255,255,255,0.5);">サイクル進行中</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <div style="width: 36px; height: 8px; background: var(--orange); border-radius: 999px; box-shadow: 0 0 8px rgba(255,92,0,0.5);" title="サイクル1 完了"></div>
+          <div style="width: 36px; height: 8px; background: linear-gradient(90deg, var(--orange) 65%, rgba(255,92,0,0.25) 65%); border-radius: 999px; box-shadow: 0 0 8px rgba(255,92,0,0.5);" title="サイクル2 進行中 65%"></div>
+          <div style="width: 36px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 999px;" title="サイクル3 待機"></div>
+          <div style="width: 36px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 999px;" title="サイクル4 待機"></div>
+        </div>
+      </div>
+      <div class="circle-timer">
+        <div class="time">24:59</div>
+        <div class="focus-label">集中時間</div>
+      </div>
+      <div class="controls">
+        <div class="ctrl-btn">⏸</div>
+        <div class="ctrl-btn stop">⏹</div>
+        <div class="ctrl-btn">⏭</div>
+      </div>
+      <div class="risk-banner">
+        <div class="icon">⚠️</div>
+        <div>
+          <div class="title">ペナルティ危険度 85% · 危険</div>
+          <div class="desc">目標未達成時、8時間後に黒歴史が公開されます</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="webcam">
+      <h3>ウェブカメラ · AI集中検知</h3>
+      <div class="webcam-frame">
+        <span class="live-dot">リアルタイム</span>
+        <div style="text-align: center; color: rgba(255,255,255,0.5);">
+          <div style="font-size: 48px;">👁</div>
+          <div style="font-size: 11px; margin-top: 8px;">顔認識有効</div>
+        </div>
+      </div>
+      <div class="detect-label">
+        <span>●</span><span style="font-weight: 600;">集中検知中</span>
+      </div>
+      <div style="padding: 14px; background: rgba(255,255,255,0.04); border-radius: var(--r-sm); font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.6;">
+        <div style="font-size: 10px; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em;">検知ルール</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="color: #FBBF24; flex-shrink: 0; font-size: 10px; margin-top: 2px;">●</span>
+            <div>
+              <span style="color: rgba(255,255,255,0.9); font-weight: 600;">顔未認識30秒以上</span><br>
+              <span style="color: rgba(255,255,255,0.55);">→ タイマー自動一時停止</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="color: var(--red); flex-shrink: 0; font-size: 10px; margin-top: 2px;">●</span>
+            <div>
+              <span style="color: rgba(255,255,255,0.9); font-weight: 600;">累積離脱5分超過</span><br>
+              <span style="color: rgba(255,255,255,0.55);">→ セッション終了確認ウィンドウ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px;">
+        <div style="font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 700; margin-bottom: 10px;">学習統計</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="padding: 10px; background: rgba(255,255,255,0.04); border-radius: var(--r-sm); border-left: 2px solid var(--green);">
+            <div style="font-size: 16px; font-weight: 700; color: var(--green); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">94%</div>
+            <div style="font-size: 9px; color: rgba(255,255,255,0.5); margin-top: 3px;">集中度</div>
+          </div>
+          <div style="padding: 10px; background: rgba(255,255,255,0.04); border-radius: var(--r-sm); border-left: 2px solid #FBBF24;">
+            <div style="font-size: 16px; font-weight: 700; color: #FBBF24; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">2回</div>
+            <div style="font-size: 9px; color: rgba(255,255,255,0.5); margin-top: 3px;">離脱回数</div>
+          </div>
+          <div style="padding: 10px; background: rgba(255,255,255,0.04); border-radius: var(--r-sm); border-left: 2px solid var(--orange);">
+            <div style="font-size: 16px; font-weight: 700; color: var(--orange); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">38s</div>
+            <div style="font-size: 9px; color: rgba(255,255,255,0.5); margin-top: 3px;">累積離脱</div>
+          </div>
+          <div style="padding: 10px; background: rgba(255,255,255,0.04); border-radius: var(--r-sm); border-left: 2px solid #86A0CD;">
+            <div style="font-size: 16px; font-weight: 700; color: #86A0CD; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">82</div>
+            <div style="font-size: 9px; color: rgba(255,255,255,0.5); margin-top: 3px;">平均(BPM)</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 12px; background: rgba(255,255,255,0.04); border-radius: var(--r-sm); margin-top: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 11px; color: rgba(255,255,255,0.55);">集中度 · 直近5分</span>
+          <span style="font-size: 11px; color: var(--green); font-weight: 700;">▲ 安定</span>
+        </div>
+        <svg viewBox="0 0 200 40" style="width: 100%; height: 40px;" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="focusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M 0 28 L 20 24 L 40 18 L 60 22 L 80 14 L 100 12 L 120 16 L 140 10 L 160 14 L 180 8 L 200 12 L 200 40 L 0 40 Z" fill="url(#focusGrad)"/>
+          <polyline points="0,28 20,24 40,18 60,22 80,14 100,12 120,16 140,10 160,14 180,8 200,12" stroke="#10B981" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="screen-id" style="color: rgba(255,255,255,0.3);">P-FE-ST-05 · /study/session</div>
+</div>
+</body>
+</html>

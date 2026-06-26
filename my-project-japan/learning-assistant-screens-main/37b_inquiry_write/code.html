@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>新規問い合わせ作成 — 学習アシスタント顧客センター</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1400px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1400px; position: relative; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習アシスタント</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ストア</a>
+      <a href="../35_info_notice/code.html">情報</a>
+      <a href="../36_support_faq/code.html" class="active">顧客センター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info">
+          <div class="name">挑戦</div>
+          <div class="meta">マスター学習者 · Lv. 12</div>
+        </div>
+      </div>
+      <div class="label-mono" style="color: var(--neutral-500); margin-bottom: 8px; padding: 0 4px;">🎧 顧客センター</div>
+      <nav class="sidebar-nav">
+        <a href="../36_support_faq/code.html"><span class="icon">❓</span>FAQ</a>
+        <a href="../37_support_inquiry/code.html"><span class="icon">💬</span>問い合わせ履歴</a>
+        <a href="#" class="active"><span class="icon">✉️</span>新規問い合わせ作成</a>
+      </nav>
+
+      <div style="margin-top: 20px; padding: 0 4px;">
+        <div class="label-mono" style="color: var(--neutral-500); margin-bottom: 8px;">よく使うヘルプ</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <a href="#" style="font-size: 12px; color: var(--neutral-700); text-decoration: none; padding: 6px 10px; border-radius: var(--r-sm);">🔒 封印所使用ガイド</a>
+          <a href="#" style="font-size: 12px; color: var(--neutral-700); text-decoration: none; padding: 6px 10px; border-radius: var(--r-sm);">💰 ポイント獲得・使用</a>
+          <a href="#" style="font-size: 12px; color: var(--neutral-700); text-decoration: none; padding: 6px 10px; border-radius: var(--r-sm);">👥 友達招待方法</a>
+        </div>
+      </div>
+
+      <div class="sidebar-cta" style="background: var(--neutral-50); color: var(--neutral-700); border: 1px solid var(--neutral-200); padding: 14px; text-align: left;">
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">📚 FAQを先に確認</div>
+        <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 10px; line-height: 1.4;">答えを素早く見つけられます</div>
+        <a href="../36_support_faq/code.html" class="btn btn-primary btn-sm" style="width: 100%;">FAQを見る →</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+        <div>
+          <h1 class="h1">新規問い合わせ作成</h1>
+          <p class="body" style="color: var(--neutral-500); margin-top: 6px;">運営チームへ直接問い合わせが可能です。平均回答時間3.5h、満足度92%。</p>
+        </div>
+        <a href="../37_support_inquiry/code.html" class="btn btn-secondary btn-sm">← 問い合わせ履歴</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 60fr 40fr; gap: 16px; margin-bottom: 24px; align-items: start;">
+
+        <div class="card elevated" style="padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div class="card-title" style="margin-bottom: 0;"><span class="icon">📝</span> 問い合わせ作成</div>
+            <span style="color: var(--red); font-size: 11px;">* 必須項目</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+
+            <div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--neutral-700); margin-bottom: 6px;">問い合わせタイプ <span style="color: var(--red);">*</span></div>
+              <div style="height: 40px; padding: 0 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 14px; width: 100%; color: var(--neutral-900); display: flex; align-items: center; justify-content: space-between; background: var(--white); cursor: pointer;">
+                <span>🔒 黒歴史封印</span>
+                <span style="color: var(--neutral-400);">▾</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--neutral-700); margin-bottom: 6px;">件名 <span style="color: var(--red);">*</span></div>
+              <input type="text" placeholder="問い合わせの件名を1行で入力してください (例: 封印コンテンツの自動削除期間について)" style="height: 40px; padding: 0 12px; font-size: 14px; width: 100%; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); outline: none; color: var(--neutral-900); box-sizing: border-box;">
+              <div style="display: flex; justify-content: space-between; margin-top: 4px; font-size: 11px; color: var(--neutral-400);">
+                <span>具体的であるほど回答が早くなります</span>
+                <span style="font-family: 'JetBrains Mono', monospace;">0 / 50文字</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--neutral-700); margin-bottom: 6px;">内容 <span style="color: var(--red);">*</span></div>
+              <textarea placeholder="詳細を記入してください。スクリーンショットを添付するとより正確な回答が可能です。" style="min-height: 180px; padding: 12px; font-size: 14px; width: 100%; line-height: 1.6; resize: vertical; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); outline: none; color: var(--neutral-900); box-sizing: border-box; font-family: inherit;"></textarea>
+              <div style="display: flex; justify-content: flex-end; margin-top: 4px; font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">0 / 2,000文字</div>
+            </div>
+
+            <div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--neutral-700); margin-bottom: 6px;">添付ファイル (任意)</div>
+              <div style="border: 2px dashed var(--neutral-300); border-radius: var(--r-md); padding: 24px; text-align: center; cursor: pointer; background: var(--neutral-50);">
+                <div style="font-size: 32px; color: var(--neutral-400); margin-bottom: 8px;">📎</div>
+                <div style="font-size: 13px; color: var(--neutral-500); margin-bottom: 4px;">ファイルをドラッグ＆ドロップまたはクリックして添付</div>
+                <div style="font-size: 11px; color: var(--neutral-400);">画像(JPG·PNG) / 文書(PDF·DOCX) / 最大5MB · 3ファイルまで</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 16px; margin: 4px 0;">
+              <label style="display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--neutral-700); cursor: pointer;">
+                <span style="width: 16px; height: 16px; border-radius: var(--r-sm); background: var(--orange); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;">✓</span>
+                メール通知
+              </label>
+              <label style="display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--neutral-700); cursor: pointer;">
+                <span style="width: 16px; height: 16px; border-radius: var(--r-sm); background: var(--orange); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;">✓</span>
+                アプリ通知
+              </label>
+            </div>
+
+            <div style="display: flex; gap: 8px; align-items: center; justify-content: space-between; font-size: 12px;">
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <span style="width: 16px; height: 16px; border: 1.5px solid var(--neutral-300); border-radius: var(--r-sm); flex-shrink: 0; background: var(--white);"></span>
+                <span style="color: var(--neutral-700);">お問い合わせの処理および回答通知送信のための個人情報収集・利用に同意します。 <span style="color: var(--red);">*</span></span>
+              </div>
+              <a href="#" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none; flex-shrink: 0;">詳細を見る</a>
+            </div>
+
+            <div style="display: flex; gap: 8px; padding-top: 8px; border-top: 1px solid var(--neutral-200);">
+              <a href="#" class="btn btn-secondary" style="flex: 0 0 100px; height: 44px;">下書き保存</a>
+              <a href="#" class="btn btn-primary" style="flex: 1; height: 44px; font-weight: 700;">💬 送信 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+
+          <div class="card elevated" style="padding: 16px; background: linear-gradient(135deg, var(--info-soft) 0%, var(--white) 100%);">
+            <div style="font-weight: 700; color: var(--navy); margin-bottom: 12px; font-size: 14px;">🕒 回答のご案内</div>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--neutral-700);">📊 平均回答時間</span>
+                <span style="font-weight: 700; color: var(--info); font-family: 'JetBrains Mono', monospace;">3.5h</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--neutral-700);">🕘 運営時間</span>
+                <span style="color: var(--neutral-900); font-weight: 600; font-family: 'JetBrains Mono', monospace;">平日 09:00~18:00</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--neutral-700);">📬 通知手段</span>
+                <span style="color: var(--neutral-900); font-weight: 600;">メール + アプリ</span>
+              </div>
+            </div>
+            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--info-soft); font-size: 11px; color: var(--neutral-500); line-height: 1.5;">
+              土日・祝日の問い合わせは翌営業日に回答いたします。緊急時はお電話にてお問い合わせください。
+            </div>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+              <div style="font-weight: 700; color: var(--navy); font-size: 14px;">❓ 関連FAQを確認</div>
+              <a href="../36_support_faq/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">FAQ一覧 →</a>
+            </div>
+            <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 8px;">より早く解決できる可能性があります</div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <a href="../36_support_faq/code.html" style="display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--neutral-200); font-size: 12px; cursor: pointer; align-items: center; text-decoration: none;">
+                <span style="color: var(--orange); font-size: 12px; flex-shrink: 0;">❓</span>
+                <span style="color: var(--navy); font-weight: 600; flex: 1;">黒歴史封印システムの仕組みは？</span>
+                <span style="color: var(--neutral-400); flex-shrink: 0;">→</span>
+              </a>
+              <a href="../36_support_faq/code.html" style="display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--neutral-200); font-size: 12px; cursor: pointer; align-items: center; text-decoration: none;">
+                <span style="color: var(--orange); font-size: 12px; flex-shrink: 0;">❓</span>
+                <span style="color: var(--navy); font-weight: 600; flex: 1;">封印されたコンテンツが公開される条件は？</span>
+                <span style="color: var(--neutral-400); flex-shrink: 0;">→</span>
+              </a>
+              <a href="../36_support_faq/code.html" style="display: flex; gap: 8px; padding: 8px 0; font-size: 12px; cursor: pointer; align-items: center; text-decoration: none;">
+                <span style="color: var(--orange); font-size: 12px; flex-shrink: 0;">❓</span>
+                <span style="color: var(--navy); font-weight: 600; flex: 1;">封印遮断券の使い方は？</span>
+                <span style="color: var(--neutral-400); flex-shrink: 0;">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 16px; text-align: center;">
+            <div style="font-size: 36px; color: var(--orange); margin-bottom: 8px; line-height: 1;">📞</div>
+            <div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 14px;">電話相談</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--orange); margin-bottom: 4px;">1588-0000</div>
+            <div style="font-size: 11px; color: var(--neutral-500); line-height: 1.5;">平日 09:00~18:00 (昼休憩 12:00~13:00を除く)</div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-CC-10 · /support/inquiry/write</div>
+</div>
+</body>
+</html>

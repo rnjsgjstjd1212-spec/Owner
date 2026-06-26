@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>マイページ — 学習ドゥミ</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1100px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1100px; position: relative; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習ドゥミ</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ストア</a>
+      <a href="../35_info_notice/code.html">情報</a>
+      <a href="../36_support_faq/code.html">サポート</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+        <div>
+          <h1 class="h1">マイページ</h1>
+          <p class="body" style="color: var(--neutral-500);">プロフィール、学習進捗、リスク設定を管理します。</p>
+        </div>
+        <a href="#" class="btn btn-secondary btn-sm">プロフィール編集</a>
+      </div>
+
+      <div class="card elevated" style="margin-bottom: 16px; padding: 24px;">
+        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center;">
+          <div style="width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--orange) 0%, #FF8B47 100%); display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 8px 24px rgba(255,92,0,0.25);">😎</div>
+
+          <div style="min-width: 0;">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <h2 class="h2" style="margin: 0;">挑戦</h2>
+              <span class="badge badge-navy">マスター学習者</span>
+              <span class="badge" style="background: var(--orange-soft); color: var(--orange);">Lv. 12</span>
+            </div>
+            <div style="font-size: 13px; color: var(--neutral-500); margin-top: 4px;">kdj@univ.ac.kr · 加入45日目 · 関心事: 情報処理技師、データベース</div>
+            <div style="margin-top: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                <span style="font-size: 11px; color: var(--neutral-500); font-weight: 600;">経験値進行度</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--navy);">1,850 / 2,300 · 次のレベルまで 450 XP</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 6px; align-items: stretch; border-left: 1px solid var(--neutral-200); padding-left: 24px;">
+            <div style="text-align: center; min-width: 64px;">
+              <div style="font-size: 22px; font-weight: 700; color: var(--orange); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">14</div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">連続学習</div>
+              <div style="font-size: 9px; color: var(--neutral-400); margin-top: 1px; font-family: 'JetBrains Mono', monospace;">DAYS</div>
+            </div>
+            <div style="width: 1px; background: var(--neutral-200);"></div>
+            <div style="text-align: center; min-width: 64px;">
+              <div style="font-size: 22px; font-weight: 700; color: var(--green); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">8</div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">獲得バッジ</div>
+              <div style="font-size: 9px; color: var(--neutral-400); margin-top: 1px; font-family: 'JetBrains Mono', monospace;">BADGES</div>
+            </div>
+            <div style="width: 1px; background: var(--neutral-200);"></div>
+            <div style="text-align: center; min-width: 64px;">
+              <div style="font-size: 22px; font-weight: 700; color: var(--navy); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">320</div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">保有ポイント</div>
+              <div style="font-size: 9px; color: var(--neutral-400); margin-top: 1px; font-family: 'JetBrains Mono', monospace;">POINTS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div class="card" style="border-color: var(--navy); border-width: 1.5px; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(26,54,93,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="card-title" style="color: var(--navy); margin-bottom: 0;"><span class="icon">🔒</span> 黒歴史封印所</div>
+            <span style="background: var(--green-soft); color: var(--green); padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">✓ 安全</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 14px;">
+            <div style="font-size: 36px; font-weight: 700; color: var(--navy); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">2</div>
+            <div style="font-size: 13px; color: var(--neutral-500);">件登録</div>
+          </div>
+          <div style="font-size: 11px; color: var(--neutral-400); margin-top: 4px; font-family: 'JetBrains Mono', monospace;">最終登録 · 2026-05-20</div>
+          <a href="#" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">封印所を管理 →</a>
+        </div>
+
+        <div class="risk-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="label">⚠️ ペナルティ危険度</div>
+            <span style="background: var(--red); color: var(--white); padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">危険</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 14px;">
+            <div class="pct" style="font-size: 36px;">85%</div>
+            <div style="font-size: 12px; color: var(--red); font-family: 'JetBrains Mono', monospace; font-weight: 600;">· 8時間後に公開</div>
+          </div>
+          <div class="progress-track" style="height: 6px; background: rgba(239,68,68,0.15); margin: 8px 0 14px;">
+            <div class="progress-fill red" style="width: 85%;"></div>
+          </div>
+          <a href="#" class="btn btn-danger btn-sm" style="width: 100%;">今すぐ学習を開始 →</a>
+        </div>
+
+        <div class="card" style="border-color: var(--green); border-width: 1.5px; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="card-title" style="color: var(--green); margin-bottom: 0;"><span class="icon">🏆</span> 報酬・ストア</div>
+            <span style="background: var(--orange-soft); color: var(--orange); padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">320 P</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 14px;">
+            <div style="font-size: 36px; font-weight: 700; color: var(--green); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">8</div>
+            <div style="font-size: 13px; color: var(--neutral-500);">個のバッジ · 12個のアイテム</div>
+          </div>
+          <div style="font-size: 11px; color: var(--neutral-400); margin-top: 4px; font-family: 'JetBrains Mono', monospace;">新規バッジ1個未受領</div>
+          <a href="#" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">ストアへ →</a>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div class="card elevated">
+          <div class="card-title"><span class="icon">📈</span> 直近30日の学習統計</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 12px 0;">
+            <div style="text-align: center; padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm);">
+              <div style="font-size: 11px; color: var(--neutral-500); font-weight: 600;">総学習時間</div>
+              <div style="font-size: 18px; font-weight: 700; color: var(--navy); font-family: 'Hanken Grotesk', sans-serif;">42h 30m</div>
+            </div>
+            <div style="text-align: center; padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm);">
+              <div style="font-size: 11px; color: var(--neutral-500); font-weight: 600;">目標達成率</div>
+              <div style="font-size: 18px; font-weight: 700; color: var(--green); font-family: 'Hanken Grotesk', sans-serif;">73%</div>
+            </div>
+            <div style="text-align: center; padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm);">
+              <div style="font-size: 11px; color: var(--neutral-500); font-weight: 600;">連続学習</div>
+              <div style="font-size: 18px; font-weight: 700; color: var(--orange); font-family: 'Hanken Grotesk', sans-serif;">14日</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: flex-end; gap: 3px; height: 60px; margin-top: 12px;">
+            <div style="flex: 1; height: 30%; background: var(--amber); border-radius: 2px 2px 0 0;" title="目標一部達成"></div>
+            <div style="flex: 1; height: 60%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 80%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 40%; background: var(--amber); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 90%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 100%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 70%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 50%; background: var(--amber); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 80%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 60%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 100%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 90%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 70%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+            <div style="flex: 1; height: 20%; background: var(--red); border-radius: 2px 2px 0 0;" title="目標未達成"></div>
+            <div style="flex: 1; height: 80%; background: var(--green); border-radius: 2px 2px 0 0;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; padding: 0 2px;">
+            <span style="font-size: 10px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">4/26</span>
+            <span style="font-size: 10px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">5/10</span>
+            <span style="font-size: 10px; color: var(--orange); font-family: 'JetBrains Mono', monospace; font-weight: 700;">今日 5/24</span>
+          </div>
+          <div style="display: flex; gap: 14px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 11px; color: var(--neutral-500);">
+            <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: var(--green); border-radius: 2px;"></span>目標達成</span>
+            <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: var(--amber); border-radius: 2px;"></span>一部達成</span>
+            <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: var(--red); border-radius: 2px;"></span>未達成</span>
+          </div>
+        </div>
+
+        <div class="card elevated">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div class="card-title" style="margin-bottom: 0;"><span class="icon">🕒</span> 活動記録</div>
+            <a href="#" style="font-size: 11px; color: var(--orange); font-weight: 600; text-decoration: none;">すべて表示 →</a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="display: flex; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--neutral-200); align-items: center;">
+              <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--green-soft); color: var(--green); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">✓</span>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600;">データベース学習 45分完了</div>
+                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">今日 14:30</div>
+              </div>
+              <span class="badge badge-success" style="flex-shrink: 0;">+50 XP</span>
+            </div>
+            <div style="display: flex; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--neutral-200); align-items: center;">
+              <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--green-soft); color: var(--green); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">✓</span>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600;">チェックリスト項目1個完了</div>
+                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">今日 09:00</div>
+              </div>
+              <span class="badge badge-success" style="flex-shrink: 0;">+5 XP</span>
+            </div>
+            <div style="display: flex; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--neutral-200); align-items: center;">
+              <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--orange-soft); color: var(--orange); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">★</span>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600;">名誉の殿堂入り</div>
+                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">昨日 21:00</div>
+              </div>
+              <span class="badge badge-success" style="flex-shrink: 0;">+100 XP</span>
+            </div>
+            <div style="display: flex; gap: 12px; padding: 10px 4px; align-items: center;">
+              <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--info-soft); color: var(--info); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">🦉</span>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600;">夜更かしバッジ獲得</div>
+                <div style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">昨日 09:00</div>
+              </div>
+              <span class="badge badge-warning" style="flex-shrink: 0;">新規</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">⚙️</span> 設定</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--neutral-200); font-size: 13px;">
+            <span>🔔 通知設定</span>
+            <span style="color: var(--neutral-400);">→</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--neutral-200); font-size: 13px;">
+            <span>🛡 黒歴史システム</span>
+            <span class="badge badge-success">有効</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--neutral-200); font-size: 13px;">
+            <span>🔗 SNS連携</span>
+            <span style="color: var(--neutral-400);">→</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--neutral-200); font-size: 13px;">
+            <span>💳 定期購読管理</span>
+            <span style="color: var(--neutral-400);">→</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 13px; color: var(--red);">
+            <span>🗑 アカウント削除</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-MY-00 · /my</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>AI学習サポーター — 学習サポーター</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 920px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 920px; position: relative; }
+
+    /* 07_ai用: 3カラム flex レイアウト (サイドバー | 会話履歴 | チャットメイン) */
+    .shell { display: flex; }
+    .sidebar { display: block; }
+
+    .chat-history {
+      width: 260px; flex-shrink: 0; background: var(--neutral-50); border-right: 1px solid var(--neutral-200); padding: 20px 16px;
+    }
+    .chat-history h3 { font-size: 12px; font-weight: 700; color: var(--neutral-500); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; font-family: 'Hanken Grotesk', sans-serif; }
+    .chat-item { padding: 10px 12px; border-radius: var(--r-md); margin-bottom: 6px; font-size: 13px; color: var(--neutral-700); }
+    .chat-item.active { background: var(--white); border: 1px solid var(--orange); color: var(--navy); font-weight: 600; }
+
+    .chat-main { flex: 1; padding: 24px 32px; display: flex; flex-direction: column; background: var(--white); }
+    .chat-header { padding-bottom: 16px; border-bottom: 1px solid var(--neutral-200); margin-bottom: 24px; }
+
+    .msg { display: flex; gap: 12px; margin-bottom: 16px; }
+    .msg .avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .msg.user .avatar { background: var(--orange); color: var(--white); }
+    .msg.ai .avatar { background: var(--navy); color: var(--white); }
+    .msg .bubble { padding: 12px 16px; border-radius: var(--r-md); max-width: 540px; }
+    .msg.user .bubble { background: var(--info-soft); color: var(--navy); }
+    .msg.ai .bubble { background: var(--neutral-50); }
+
+    .code-block {
+      background: #1E293B; color: #E2E8F0;
+      padding: 14px 16px; border-radius: var(--r-sm);
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6;
+      margin: 12px 0;
+    }
+    .code-block .kw { color: #93C5FD; }
+    .code-block .str { color: #FCA5A5; }
+
+    .input-area { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--neutral-200); }
+    .input-box {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px; background: var(--neutral-50); border-radius: var(--r-md); border: 1px solid var(--neutral-200);
+    }
+    .input-box .placeholder { flex: 1; color: var(--neutral-400); font-size: 14px; }
+    .input-box .icon-btn { width: 32px; height: 32px; border-radius: 50%; background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習サポーター</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="#" class="active">学習</a><a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ショップ</a>
+      <a href="../35_info_notice/code.html">情報</a>
+      <a href="../36_support_faq/code.html">カスタマーセンター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info"><div class="name">挑戦</div><div class="meta">マスター学習者 · Lv. 12</div></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../02_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+        <a href="../03_session/code.html"><span class="icon">⏱</span>学習セッション</a>
+        <a href="../06_stats/code.html"><span class="icon">📈</span>統計·レポート</a>
+        <a href="#" class="active"><span class="icon">🤖</span>AIサポーター</a>
+      </nav>
+      <a href="#" class="sidebar-cta">+ 新しい会話を開始</a>
+    </aside>
+
+    <div class="chat-history">
+      <h3>会話履歴</h3>
+      <div class="chat-item active">📌 SQL JOINの種類を解説</div>
+      <div class="chat-item">Database正規化 1〜3次</div>
+      <div class="chat-item">Network OSI 7階層</div>
+      <div class="chat-item">オペレーティングシステム スケジューリング要約</div>
+      <div class="chat-item">Java Stream API比較</div>
+      <div class="chat-item">アルゴリズムの時間計算量</div>
+      <div style="margin-top: 16px; padding: 10px 12px; background: var(--orange-soft); border-radius: var(--r-sm); font-size: 11px; color: var(--orange); font-weight: 600; text-align: center;">💡 おすすめ: 学習データで弱点分析</div>
+    </div>
+
+    <main class="chat-main">
+      <div class="chat-header">
+        <h2 class="h2" style="font-size: 18px; margin: 0;">🤖 AI学習サポーター</h2>
+        <div style="font-size: 12px; color: var(--neutral-500); margin-top: 4px;">GPT-4oベース · 学習コンテキストシステムプロンプト適用 · 無料で1日20回まで利用可能</div>
+      </div>
+
+      <div style="text-align: center; font-size: 11px; color: var(--neutral-400); margin-bottom: 16px;">Today, 14:32</div>
+
+      <div class="msg ai">
+        <div class="avatar">🤖</div>
+        <div class="bubble">
+          <div style="font-size: 14px;">こんにちは、挑戦さん！今日はどのようなお手伝いをしましょうか？学習データに基づいた弱点分析、問題演習、教材のレコメンドなどが可能です。</div>
+        </div>
+      </div>
+
+      <div class="msg user" style="flex-direction: row-reverse;">
+        <div class="avatar">挑</div>
+        <div class="bubble">
+          <div style="font-size: 14px;">SQL JOINの種類について分かりやすく教えて。INNER、LEFT、RIGHT、FULLの違いを比較してほしい。</div>
+        </div>
+      </div>
+
+      <div class="msg ai">
+        <div class="avatar">🤖</div>
+        <div class="bubble" style="max-width: 620px;">
+          <div style="font-size: 14px; margin-bottom: 8px;">承知しました！SQL JOINについて分かりやすく解説します。JOINは2つ以上のテーブルを結合して、データをまとめて表示するための演算です。</div>
+          
+          <div style="font-size: 13px; line-height: 1.8;">
+            <strong>1. INNER JOIN (内部結合)</strong> — 両方のテーブルに存在するデータのみ取得<br>
+            <strong>2. LEFT JOIN (左外部結合)</strong> — 左テーブルの全データ + 右テーブルの合致データ<br>
+            <strong>3. RIGHT JOIN (右外部結合)</strong> — 右テーブルの全データ + 左テーブルの合致データ<br>
+            <strong>4. FULL OUTER JOIN (完全外部結合)</strong> — 両方のテーブルの全データを取得
+          </div>
+          <div class="code-block">
+            <span class="kw">SELECT</span> *<br>
+            <span class="kw">FROM</span> TableA<br>
+            <span class="kw">INNER JOIN</span> TableB <span class="kw">ON</span> A.id = B.id;
+          </div>
+          <div style="font-size: 13px; margin-top: 8px;">理解できましたか？追加で各JOINの練習問題を解いてみますか？</div>
+          <div style="display: flex; gap: 8px; margin-top: 12px;">
+            <a href="#" class="btn btn-secondary btn-sm">練習問題を解く</a>
+            <a href="#" class="btn btn-ghost btn-sm">他の質問をする</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-box">
+          <span style="color: var(--neutral-400);">📎</span>
+          <span class="placeholder">メッセージを入力してください...</span>
+          <span class="icon-btn">📷</span>
+          <span class="icon-btn">📄</span>
+          <a href="#" class="btn btn-primary btn-sm" style="height: 36px;">送信 ▶</a>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--neutral-400); margin-top: 8px;">
+          <div>本日の使用量: 8 / 20回 · プレミアムは無制限</div>
+          <div>📎 添付: 画像・PDF・コード可能</div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-ST-15 · /study/ai</div>
+</div>
+</body>
+</html>

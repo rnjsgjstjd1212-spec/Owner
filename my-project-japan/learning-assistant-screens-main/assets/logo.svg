@@ -1,0 +1,38 @@
+<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="학습도우미 LearnGuard 로고">
+  <defs>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A365D"/>
+      <stop offset="100%" stop-color="#0F2447"/>
+    </linearGradient>
+    <linearGradient id="logoAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7B33"/>
+      <stop offset="100%" stop-color="#FF5C00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Navy 배경 -->
+  <rect width="40" height="40" rx="10" fill="url(#logoBg)"/>
+
+  <!-- 펼친 책 — 왼쪽 페이지 -->
+  <path d="M 7 13 Q 13 11.5 19 13.2 L 19 29.5 Q 13 28 7 29.2 Z" fill="#FFFFFF"/>
+  <!-- 펼친 책 — 오른쪽 페이지 (살짝 투명) -->
+  <path d="M 33 13 Q 27 11.5 21 13.2 L 21 29.5 Q 27 28 33 29.2 Z" fill="#FFFFFF" opacity="0.92"/>
+
+  <!-- 책 페이지 텍스트 라인 (왼쪽) -->
+  <line x1="9.5" y1="16.5" x2="17" y2="17.2" stroke="#1A365D" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+  <line x1="9.5" y1="19.5" x2="16" y2="20.1" stroke="#1A365D" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+  <line x1="9.5" y1="22.5" x2="17" y2="23.1" stroke="#1A365D" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- 책 페이지 텍스트 라인 (오른쪽) -->
+  <line x1="23" y1="17.2" x2="30.5" y2="16.5" stroke="#1A365D" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+  <line x1="24" y1="20.1" x2="30.5" y2="19.5" stroke="#1A365D" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+  <line x1="23" y1="23.1" x2="30.5" y2="22.5" stroke="#1A365D" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- 학습 진행 게이지 -->
+  <rect x="7" y="32" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.18)"/>
+  <rect x="7" y="32" width="17" height="3" rx="1.5" fill="url(#logoAccent)"/>
+
+  <!-- 오렌지 액센트 점 (LEVEL UP 메타포) -->
+  <circle cx="32" cy="10" r="3.5" fill="url(#logoAccent)"/>
+  <circle cx="32" cy="10" r="1.6" fill="#FFFFFF"/>
+</svg>

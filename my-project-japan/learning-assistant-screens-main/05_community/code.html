@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>コミュニティ — 学習ドゥミ</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1050px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1050px; position: relative; }
+    .post-card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-md); padding: 16px; transition: transform 0.15s, box-shadow 0.15s; }
+    .post-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    .post-thumb { background: var(--neutral-100); height: 140px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 12px; overflow: hidden; }
+    .vault-mosaic {
+      position: absolute; inset: 0; border-radius: var(--r-sm);
+      background-image:
+        linear-gradient(45deg, rgba(0,0,0,0.18) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0,0,0,0.18) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.18) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.18) 75%);
+      background-size: 14px 14px;
+      background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+    }
+    .blur-overlay { position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(15,36,71,0.65); backdrop-filter: blur(8px); border-radius: var(--r-sm); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-size: 12px; gap: 6px; }
+    .blur-overlay .lock-circle { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,92,0,0.9); display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .safety-banner summary { list-style: none; }
+    .safety-banner summary::-webkit-details-marker { display: none; }
+    .safety-banner .safety-arrow { transition: transform 0.2s ease; }
+    .safety-banner[open] .safety-arrow { transform: rotate(180deg); }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習ドゥミ</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="#" class="active">コミュニティ</a>
+      <a href="../08_store/code.html">ストア</a>
+      <a href="../35_info_notice/code.html">情報</a>
+      <a href="../36_support_faq/code.html">サポート</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info"><div class="name">挑戦</div><div class="meta">マスター学習者 · Lv. 12</div></div>
+      </div>
+      <div style="font-size: 10px; font-weight: 700; color: var(--neutral-400); letter-spacing: 0.08em; padding: 16px 16px 8px; text-transform: uppercase;">コミュニティ</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="active"><span class="icon">🔓</span>公開掲示板</a>
+        <a href="../05b_qna/code.html"><span class="icon">💬</span>Q&A掲示板</a>
+        <a href="../05c_free/code.html"><span class="icon">📝</span>自由掲示板</a>
+        <a href="../05d_hall/code.html"><span class="icon">🏆</span>殿堂入り</a>
+        <a href="../05e_sns/code.html"><span class="icon">🔗</span>SNS連携</a>
+      </nav>
+      <a href="../04_mypage/code.html" class="sidebar-cta" style="margin-top: 20px;">🔒 マイ封印所へ</a>
+    </aside>
+
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+          <h1 class="h1" style="margin: 0;">🔓 公開掲示板</h1>
+          <span style="font-size: 13px; color: var(--red); font-weight: 600;">· 黒歴史ペナルティ公開専用</span>
+        </div>
+        <span class="btn btn-primary btn-sm" aria-hidden="true" style="visibility: hidden; position: relative; top: 24px;">+</span>
+      </div>
+      <p class="body" style="color: var(--neutral-500); margin-bottom: 16px;">学習目標の達成に失敗した学習者の黒歴史が自動的に公開される空間です。</p>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--neutral-200); margin-bottom: 16px; gap: 12px; flex-wrap: wrap;">
+        <div style="display: flex; gap: 4px;">
+          <div style="padding: 12px 16px; border-bottom: 3px solid var(--orange); margin-bottom: -2px; color: var(--navy); font-weight: 700; font-size: 14px; cursor: pointer;">最新順</div>
+          <div style="padding: 12px 16px; color: var(--neutral-500); font-size: 14px; font-weight: 500; cursor: pointer;">人気順</div>
+          <div style="padding: 12px 16px; color: var(--neutral-500); font-size: 14px; font-weight: 500; cursor: pointer;">コメント多い順</div>
+          <div style="padding: 12px 16px; color: var(--neutral-500); font-size: 14px; font-weight: 500; cursor: pointer;">危険度順 🔥</div>
+        </div>
+        <div style="display: flex; gap: 6px; align-items: center; padding-bottom: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--neutral-100); border-radius: var(--r-sm); font-size: 12px; color: var(--neutral-700); min-width: 200px;">
+            <span>🔍</span>
+            <span style="color: var(--neutral-400);">掲示板内検索</span>
+          </div>
+          <div style="padding: 6px 12px; background: var(--white); border: 1px solid var(--neutral-300); border-radius: var(--r-sm); font-size: 12px; color: var(--neutral-700); cursor: pointer; font-weight: 500;">タグ ▾</div>
+          <div style="padding: 6px 12px; background: var(--white); border: 1px solid var(--neutral-300); border-radius: var(--r-sm); font-size: 12px; color: var(--neutral-700); cursor: pointer; font-weight: 500;">期間 ▾</div>
+        </div>
+      </div>
+
+      <details class="safety-banner" style="background: var(--info-soft); border-left: 4px solid var(--info); border-radius: var(--r-sm); margin-bottom: 20px; overflow: hidden;">
+        <summary style="padding: 12px 16px; display: flex; gap: 12px; align-items: center; cursor: pointer;">
+          <span style="font-size: 20px;">🛡️</span>
+          <div style="flex: 1;">
+            <div style="font-weight: 700; font-size: 13px; color: #1E40AF;">安全なコミュニティ環境</div>
+            <div style="font-size: 12px; color: #1E40AF;">学習ドゥミの安全モニタリングシステムが24時間、不適切なコンテンツを自動フィルタリングし、安全な学習空間を維持します。</div>
+          </div>
+          <span style="background: var(--green); color: var(--white); padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700; white-space: nowrap;">● 稼働中</span>
+          <span class="safety-arrow" style="font-size: 14px; color: #1E40AF;">▾</span>
+        </summary>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px 16px 14px; border-top: 1px solid rgba(30,64,175,0.12);">
+          <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(255,255,255,0.6); border-radius: var(--r-sm); font-size: 11px; color: #1E40AF;">
+            <span style="color: var(--red);">●</span>
+            <span style="font-weight: 600;">暴力的なコンテンツ自動遮断</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(255,255,255,0.6); border-radius: var(--r-sm); font-size: 11px; color: #1E40AF;">
+            <span style="color: var(--orange);">●</span>
+            <span style="font-weight: 600;">他人識別可能な場合拒否</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(255,255,255,0.6); border-radius: var(--r-sm); font-size: 11px; color: #1E40AF;">
+            <span style="color: #FBBF24;">●</span>
+            <span style="font-weight: 600;">個人情報露出検知</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(255,255,255,0.6); border-radius: var(--r-sm); font-size: 11px; color: #1E40AF;">
+            <span style="color: var(--green);">●</span>
+            <span style="font-weight: 600;">24時間自動モニタリング</span>
+          </div>
+        </div>
+      </details>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+        <div class="post-card" style="border-color: var(--red); border-width: 1.5px;">
+          <div class="post-thumb" style="background: linear-gradient(135deg, #FEF3C7 0%, var(--red-soft-2) 100%); padding: 16px; align-items: flex-start; justify-content: flex-start; position: relative;">
+            <div style="font-family: 'Hanken Grotesk', sans-serif; font-style: italic; color: var(--neutral-700); font-size: 13px; line-height: 1.5; padding-top: 32px;">
+              <span style="font-size: 24px; color: var(--red); line-height: 0.6;">"</span>
+              <span>深夜3時までYouTubeを見てアラームを全て消し、11時に起床。学習0分。</span>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2時間前</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px;">深夜までYouTubeを見て寝坊した黒歴史</div>
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--orange);">#反省</span>
+            <span style="font-size: 11px; color: var(--orange);">#寝坊</span>
+            <span style="font-size: 11px; color: var(--orange);">#ペナルティ-5000P</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 12px; color: var(--neutral-500);">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span>♥ 24</span>
+              <span>💬 5</span>
+              <span style="color: var(--neutral-400); cursor: pointer; transition: color 200ms ease-out;" title="通報">🚩</span>
+            </div>
+            <span>意志弱者</span>
+          </div>
+        </div>
+
+        <div class="post-card" style="border-color: var(--red); border-width: 1.5px;">
+          <div class="post-thumb" style="background: linear-gradient(135deg, #FECACA 0%, var(--red-soft-2) 100%); position: relative; overflow: hidden;">
+            <div style="position: absolute; inset: 0; filter: blur(14px); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0.6;">
+              <div style="font-size: 48px;">📸</div>
+              <div style="font-size: 14px; color: var(--red); font-weight: 700; margin-top: 4px;">パジャマ姿の写真</div>
+            </div>
+            <div style="position: absolute; inset: 0; background: rgba(127,29,29,0.55); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 16px; z-index: 2;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">⚠</div>
+              <div style="font-size: 12px; color: var(--white); font-weight: 700; letter-spacing: 0.02em;">敏感なコンテンツ</div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.85);">クリックして見る</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">5時間前</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px;">試験期間なのにゲームばかりしてる...</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 8px; line-height: 1.5;">情報処理技師の試験まであと7日なのに、昨日LoLを6時間も。目標学習時間0分達成で黒歴史が自動公開。次は絶対にしません...</div>
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--orange);">#ゲーム</span>
+            <span style="font-size: 11px; color: var(--orange);">#試験期間</span>
+            <span style="font-size: 11px; color: var(--orange);">#ペナルティ-3000P</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 12px; color: var(--neutral-500);">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span>♥ 128</span>
+              <span>💬 12</span>
+              <span style="color: var(--neutral-400); cursor: pointer; transition: color 200ms ease-out;" title="通報">🚩</span>
+            </div>
+            <span>LoLばかりしている人</span>
+          </div>
+        </div>
+
+        <div class="post-card" style="border-color: var(--red); border-width: 1.5px;">
+          <div class="post-thumb" style="background: linear-gradient(135deg, #FED7AA 0%, #FEF3C7 100%);">
+            <div style="text-align: center; padding: 12px;">
+              <div style="font-size: 36px; margin-bottom: 4px;">🎮</div>
+              <div style="font-size: 11px; color: var(--red); font-weight: 700;">Steamプレイ時間 8時間12分</div>
+              <div style="font-size: 10px; color: var(--neutral-600); margin-top: 4px; opacity: 0.8;">直近24時間 · 学習0分</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">5時間前</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px;">ゲーム8時間、学習0分の結末</div>
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--orange);">#寄り道</span>
+            <span style="font-size: 11px; color: var(--orange);">#ゲーム</span>
+            <span style="font-size: 11px; color: var(--orange);">#ペナルティ-4000P</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 12px; color: var(--neutral-500);">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span>♥ 45</span>
+              <span>💬 18</span>
+              <span style="color: var(--neutral-400); cursor: pointer; transition: color 200ms ease-out;" title="通報">🚩</span>
+            </div>
+            <span>user_gamer</span>
+          </div>
+        </div>
+
+        <div class="post-card" style="border-color: var(--red); border-width: 1.5px;">
+          <div class="post-thumb" style="background: linear-gradient(135deg, #DBEAFE 0%, var(--red-soft-2) 100%);">
+            <div style="text-align: center; padding: 12px;">
+              <div style="font-size: 32px; margin-bottom: 4px;">📱</div>
+              <div style="font-size: 11px; color: var(--red); font-weight: 700;">スクリーンタイム 14時間32分</div>
+              <div style="font-size: 10px; color: var(--neutral-600); margin-top: 4px; opacity: 0.8;">インスタ6h · YouTube 4h · TikTok 4h</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">1日前</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px;">SNSばかり見て一日を浪費...</div>
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--orange);">#SNS</span>
+            <span style="font-size: 11px; color: var(--orange);">#寄り道</span>
+            <span style="font-size: 11px; color: var(--orange);">#ペナルティ-2000P</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 12px; color: var(--neutral-500);">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span>♥ 8</span>
+              <span>💬 12</span>
+              <span style="color: var(--neutral-400); cursor: pointer; transition: color 200ms ease-out;" title="通報">🚩</span>
+            </div>
+            <span>silent_loser</span>
+          </div>
+        </div>
+
+        <div class="post-card" style="border-color: var(--red); border-width: 1.5px;">
+          <div class="post-thumb" style="background: linear-gradient(135deg, var(--red-soft-2) 0%, #FED7AA 100%);">
+            <div style="text-align: center; padding: 12px;">
+              <div style="font-size: 36px; margin-bottom: 4px;">📺</div>
+              <div style="font-size: 11px; color: var(--red); font-weight: 700;">Netflix連続再生 6時間0分</div>
+              <div style="font-size: 10px; color: var(--neutral-600); margin-top: 4px; opacity: 0.8;">直近24時間 · 学習0分</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">7時間前</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px;">Netflixイッキ見6時間</div>
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--orange);">#イッキ見</span>
+            <span style="font-size: 11px; color: var(--orange);">#ドラマ</span>
+            <span style="font-size: 11px; color: var(--orange);">#ペナルティ-3500P</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 12px; color: var(--neutral-500);">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span>♥ 31</span>
+              <span>💬 9</span>
+              <span style="color: var(--neutral-400); cursor: pointer; transition: color 200ms ease-out;" title="通報">🚩</span>
+            </div>
+            <span>イッキ見ランナー</span>
+          </div>
+        </div>
+
+        <div class="post-card" style="border-color: var(--red); border-width: 1.5px;">
+          <div class="post-thumb" style="background: linear-gradient(135deg, #FEF3C7 0%, var(--red-soft-2) 100%);">
+            <div style="text-align: center; padding: 12px;">
+              <div style="font-size: 36px; margin-bottom: 4px;">☕</div>
+              <div style="font-size: 11px; color: var(--red); font-weight: 700;">カフェ滞在 4時間0分</div>
+              <div style="font-size: 10px; color: var(--neutral-600); margin-top: 4px; opacity: 0.8;">学習認証0件 · おしゃべりだけ</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">9時間前</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px;">カフェでおしゃべり4時間</div>
+          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--orange);">#寄り道</span>
+            <span style="font-size: 11px; color: var(--orange);">#おしゃべり</span>
+            <span style="font-size: 11px; color: var(--orange);">#ペナルティ-1500P</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--neutral-200); font-size: 12px; color: var(--neutral-500);">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span>♥ 17</span>
+              <span>💬 6</span>
+              <span style="color: var(--neutral-400); cursor: pointer; transition: color 200ms ease-out;" title="通報">🚩</span>
+            </div>
+            <span>口だけの人</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; gap: 4px; margin-top: 16px;">
+        <span style="padding: 6px 10px; color: var(--neutral-400); font-size: 13px; cursor: pointer;">←</span>
+        <span style="padding: 6px 12px; background: var(--orange); color: var(--white); border-radius: var(--r-sm); font-size: 13px; font-weight: 700; cursor: pointer;">1</span>
+        <span style="padding: 6px 12px; color: var(--neutral-600); font-size: 13px; cursor: pointer;">2</span>
+        <span style="padding: 6px 12px; color: var(--neutral-600); font-size: 13px; cursor: pointer;">3</span>
+        <span style="padding: 6px 12px; color: var(--neutral-600); font-size: 13px; cursor: pointer;">4</span>
+        <span style="padding: 6px 12px; color: var(--neutral-400); font-size: 13px;">...</span>
+        <span style="padding: 6px 12px; color: var(--neutral-600); font-size: 13px; cursor: pointer;">42</span>
+        <span style="padding: 6px 10px; color: var(--neutral-600); font-size: 13px; cursor: pointer;">→</span>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-CM-00 · /community/board</div>
+</div>
+</body>
+</html>

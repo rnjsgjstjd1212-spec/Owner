@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>お知らせ・イベント — 学習アシスタント</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1300px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1300px; position: relative; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習アシスタント</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ストア</a>
+      <a href="../35_info_notice/code.html" class="active">情報</a>
+      <a href="../36_support_faq/code.html">顧客センター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info">
+          <div class="name">挑戦</div>
+          <div class="meta">マスター学習者 · Lv. 12</div>
+        </div>
+      </div>
+      <div class="label-mono" style="color: var(--neutral-500); margin-bottom: 8px; padding: 0 4px;">📰 情報</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="active"><span class="icon">📢</span>お知らせ</a>
+        <a href="../32_info_trend/code.html"><span class="icon">📊</span>学習トレンド</a>
+        <a href="../33_info_recommend/code.html"><span class="icon">🎓</span>講座おすすめ</a>
+        <a href="../34_search_results/code.html"><span class="icon">🔍</span>検索結果</a>
+      </nav>
+      <div class="sidebar-cta" style="background: var(--neutral-50); color: var(--neutral-700); border: 1px solid var(--neutral-200); padding: 14px; text-align: left;">
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">🔔 通知設定</div>
+        <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 10px; line-height: 1.4;">お知らせ・イベントの通知を受け取る</div>
+        <a href="#" class="btn btn-primary btn-sm" style="width: 100%;">設定 →</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+        <div>
+          <h1 class="h1">お知らせ・イベント</h1>
+          <p class="body" style="color: var(--neutral-500); margin-top: 6px;">運営陣からのお知らせと進行中のイベントを確認してください。</p>
+        </div>
+        <a href="#" class="btn btn-secondary btn-sm">🔔 通知設定</a>
+      </div>
+      <div class="card elevated" style="padding: 20px; margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div style="display: flex; gap: 8px; align-items: baseline;">
+            <h2 style="font-family: 'Hanken Grotesk', 'Pretendard', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin: 0;">🎉 進行中のイベント</h2>
+            <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">3件</span>
+          </div>
+          <span style="background: var(--red); color: var(--white); padding: 3px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700; letter-spacing: 0.05em;">🔥 LIVE</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+
+          <div class="card" style="padding: 16px; border-top: 3px solid var(--green);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="background: var(--green-soft); color: var(--green); padding: 3px 8px; border-radius: var(--r-full); font-size: 11px; font-weight: 700;">🎁 新規登録ボーナス</span>
+              <span style="font-size: 10px; color: var(--neutral-500); font-family: 'JetBrains Mono', monospace;">常時</span>
+            </div>
+            <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 10px; line-height: 1.4;">新規登録で1,000 P + 封印1回遮断券を即時支給</div>
+            <div style="display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap;">
+              <span style="padding: 6px 10px; background: var(--orange-soft); color: var(--orange); border-radius: var(--r-sm); font-size: 12px; font-weight: 700; font-family: 'JetBrains Mono', monospace;">+1,000 P</span>
+              <span style="padding: 6px 10px; background: var(--orange-soft); color: var(--orange); border-radius: var(--r-sm); font-size: 12px; font-weight: 700;">🛡 遮断券 1枚</span>
+            </div>
+            <a href="#" class="btn btn-primary btn-sm" style="width: 100%;">今すぐ登録 →</a>
+          </div>
+
+          <div class="card" style="padding: 16px; border-top: 3px solid var(--orange);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="background: var(--orange-soft); color: var(--orange); padding: 3px 8px; border-radius: var(--r-full); font-size: 11px; font-weight: 700;">🏆 学習競争</span>
+              <span style="font-size: 11px; color: var(--red); font-weight: 700; font-family: 'JetBrains Mono', monospace;">残り3日</span>
+            </div>
+            <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 10px; line-height: 1.4;">5月の学習時間 TOP 10 殿堂入り + 5,000 P</div>
+            <div style="display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap;">
+              <span style="padding: 6px 10px; background: var(--orange-soft); color: var(--orange); border-radius: var(--r-sm); font-size: 12px; font-weight: 700;">🏆 殿堂入り</span>
+              <span style="padding: 6px 10px; background: var(--orange-soft); color: var(--orange); border-radius: var(--r-sm); font-size: 12px; font-weight: 700; font-family: 'JetBrains Mono', monospace;">+5,000 P</span>
+            </div>
+            <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 6px;">現在の順位 <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--orange);">12位</span> (累計 15h 22m)</div>
+            <div style="height: 4px; background: var(--orange-soft); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+              <div style="width: 60%; height: 100%; background: var(--orange);"></div>
+            </div>
+            <a href="../03_session/code.html" class="btn btn-primary btn-sm" style="width: 100%;">学習を開始 →</a>
+          </div>
+
+          <div class="card" style="padding: 16px; border-top: 3px solid var(--info);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="background: var(--info-soft); color: var(--info); padding: 3px 8px; border-radius: var(--r-full); font-size: 11px; font-weight: 700;">👥 友達招待</span>
+              <span style="font-size: 10px; color: var(--neutral-500); font-family: 'JetBrains Mono', monospace;">5/31まで</span>
+            </div>
+            <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 10px; line-height: 1.4;">友達1人招待で500 P (月5人制限)</div>
+            <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 6px;">今月の招待 <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--info);">2/5人</span> 完了</div>
+            <div style="height: 4px; background: var(--info-soft); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+              <div style="width: 40%; height: 100%; background: var(--info);"></div>
+            </div>
+            <a href="#" class="btn btn-secondary btn-sm" style="width: 100%;">招待リンクを取得 →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card elevated" style="padding: 20px; margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+          <h2 style="font-family: 'Hanken Grotesk', 'Pretendard', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin: 0;">📢 お知らせ</h2>
+          <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">全47件</span>
+        </div>
+
+        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+          <span style="padding: 6px 12px; border-radius: var(--r-full); font-size: 12px; font-weight: 700; background: var(--navy); color: var(--white); cursor: pointer;">すべて (47)</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer;">システム (12)</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer;">ポリシー (8)</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer;">アップデート (15)</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer;">点検 (5)</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer;">イベント案内 (7)</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--green-soft); color: var(--green); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">アップデート</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;"><span style="color: var(--red); margin-right: 4px;">🔴</span>[v2.0] 封印システム大規模アップデート — 新機能 + セキュリティ強化</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">封印コンテンツ暗号化 + 遮断券拡大 + AI安全モニタリング精度改善...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-26</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 1,247</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--red-soft); color: var(--red); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">点検</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;"><span style="color: var(--red); margin-right: 4px;">🔴</span>[必読] 6月1日定期システム点検のお知らせ (00:00~03:00, 3時間)</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">安定性向上作業実施、該当時間はアクセス不可。学習データは安全に保管されます...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-24</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 2,847</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--orange-soft); color: var(--orange); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">ポリシー</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">黒歴史コンテンツガイドライン変更のお知らせ (個人情報保護強化)</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">公開可能コンテンツ基準の明確化、不適切コンテンツ自動遮断範囲の拡大...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-20</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 892</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--orange-soft); color: var(--orange); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">イベント</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">5月学習王競争開始 — 学習時間 TOP 10 殿堂入り</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">5月1日~31日の累計学習時間基準、上位10名に5,000 P + 殿堂入り永久掲載...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-15</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 1,567</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--green-soft); color: var(--green); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">アップデート</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">安全モニタリング精度改善 — 不適切コンテンツ自動検査強化</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">AIモデルアップデートにより遮断精度が92% → 97%へ向上、誤検知率減少...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-10</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 634</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--orange-soft); color: var(--orange); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">イベント</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">新規会員登録ボーナス拡大 (1,000 P + 遮断券1枚)</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">新規登録時に即時適用。友達紹介時、紹介者にも500 P支給...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-05</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 1,234</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--red-soft); color: var(--red); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">点検</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">5月1日定期点検完了のお知らせ</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">点検時間短縮 (予定3時間 → 1時間30分)。学習データ正常保存を確認...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-05-01</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 423</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--orange-soft); color: var(--orange); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">ポリシー</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">個人情報処理方針アップデートのお知らせ (2026年5月)</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">データ保管期間明示、第三者提供条項追加、ユーザー権利強化...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-04-28</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 567</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--neutral-200); align-items: center; cursor: pointer;">
+            <span style="background: var(--green-soft); color: var(--green); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">アップデート</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">AI学習アシスタントチャットボット・ベータオープン</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">学習領域でチャットボット利用可能 (ベータ期間無料)。質問・解説・要約機能提供...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-04-25</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 1,891</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; padding: 14px 0; align-items: center; cursor: pointer;">
+            <span style="background: var(--orange-soft); color: var(--orange); min-width: 80px; text-align: center; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-sm); flex-shrink: 0;">イベント</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px;">🎉 学習アシスタント1周年記念 — 全会員500 P支給</div>
+              <div style="font-size: 11px; color: var(--neutral-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">5月1日深夜に自動支給。1年間ご利用いただいた全ての学習者の皆様に感謝いたします...</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">2026-04-20</span>
+              <span style="font-size: 10px; color: var(--neutral-400);">👁 3,247</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 4px; padding-top: 20px; margin-top: 6px; border-top: 1px solid var(--neutral-200);">
+          <span style="padding: 6px 12px; border-radius: var(--r-sm); background: var(--orange); color: var(--white); font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'JetBrains Mono', monospace;">1</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-sm); background: var(--white); color: var(--neutral-700); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--neutral-200);">2</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-sm); background: var(--white); color: var(--neutral-700); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--neutral-200);">3</span>
+          <span style="padding: 6px 8px; color: var(--neutral-400); font-size: 12px; font-family: 'JetBrains Mono', monospace;">...</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-sm); background: var(--white); color: var(--neutral-700); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--neutral-200);">5</span>
+          <span style="padding: 6px 12px; border-radius: var(--r-sm); background: var(--white); color: var(--neutral-700); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--neutral-200);">→</span>
+        </div>
+      </div>
+      <div style="position: relative; padding: 16px; border: 1px dashed var(--neutral-300); border-radius: var(--r-md); background: linear-gradient(135deg, var(--orange-soft) 0%, var(--white) 100%); display: flex; gap: 16px; align-items: center;">
+        <span class="label-mono" style="position: absolute; top: 8px; right: 12px; font-size: 10px; color: var(--neutral-400);">💡 広告</span>
+        <div style="width: 64px; height: 64px; background: var(--white); border-radius: var(--r-md); font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">📚</div>
+        <div style="flex: 1;">
+          <div style="font-size: 11px; color: var(--orange); font-weight: 600; margin-bottom: 4px;">提携書籍</div>
+          <div style="font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 4px;">YES24 - IT資格書籍 5月限定30%割引</div>
+          <div style="font-size: 12px; color: var(--neutral-500);">クーポンコード: <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--orange);">STUDY30</span> · 5月31日まで</div>
+        </div>
+        <a href="#" class="btn btn-secondary btn-sm">クーポン取得 →</a>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-IN-00 · /info/notice</div>
+</div>
+</body>
+</html>

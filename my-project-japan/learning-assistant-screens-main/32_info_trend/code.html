@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>学習トレンド・ニュース — 学習サポーター</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1300px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1300px; position: relative; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習サポーター</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="../05_community/code.html">コミュニティ</a>
+      <a href="../08_store/code.html">ショップ</a>
+      <a href="../35_info_notice/code.html" class="active">情報</a>
+      <a href="../36_support_faq/code.html">カスタマーセンター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info">
+          <div class="name">挑戦</div>
+          <div class="meta">マスター学習者 · Lv. 12</div>
+        </div>
+      </div>
+      <div class="label-mono" style="color: var(--neutral-500); margin-bottom: 8px; padding: 0 4px;">📰 情報</div>
+      <nav class="sidebar-nav">
+        <a href="../35_info_notice/code.html"><span class="icon">📢</span>お知らせ</a>
+        <a href="#" class="active"><span class="icon">📊</span>学習トレンド</a>
+        <a href="../33_info_recommend/code.html"><span class="icon">🎓</span>講座おすすめ</a>
+        <a href="../34_search_results/code.html"><span class="icon">🔍</span>検索結果</a>
+      </nav>
+      <div class="sidebar-cta" style="background: var(--neutral-50); color: var(--neutral-700); border: 1px solid var(--neutral-200); padding: 14px; text-align: left;">
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">💡 学習トレンド通知</div>
+        <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 10px; line-height: 1.4;">関心カテゴリーの新しいトレンド通知を受け取る</div>
+        <a href="#" class="btn btn-primary btn-sm" style="width: 100%;">通知設定</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+        <div>
+          <h1 class="h1">学習トレンド・ニュース</h1>
+          <p class="body" style="color: var(--neutral-500); margin-top: 6px;">他の学習者の学習テーマと最新の学習トレンドを確認しましょう。</p>
+        </div>
+        <a href="#" class="btn btn-secondary btn-sm">🔥 人気順 ▾</a>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto;">
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 700; background: var(--navy); color: var(--white); cursor: pointer; white-space: nowrap;">すべて</span>
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer; white-space: nowrap;">💻 IT開発</span>
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer; white-space: nowrap;">📜 資格</span>
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer; white-space: nowrap;">🎯 受験</span>
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer; white-space: nowrap;">🌐 言語</span>
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer; white-space: nowrap;">💼 就職</span>
+        <span style="padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 600; background: var(--neutral-100); color: var(--neutral-700); cursor: pointer; white-space: nowrap;">🎨 デザイン</span>
+      </div>
+      <div class="card elevated" style="padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--orange); display: flex; gap: 24px; align-items: center;">
+        <div style="flex: 1;">
+          <div style="display: flex; gap: 8px; margin-bottom: 8px; align-items: center;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--orange); background: var(--orange-soft); padding: 4px 10px; border-radius: var(--r-full);">🔥 今週のホットトレンド</span>
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-500); padding: 4px 10px; background: var(--neutral-100); border-radius: var(--r-full);">💻 IT開発</span>
+          </div>
+          <h2 style="font-family: 'Hanken Grotesk', 'Pretendard', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 6px; line-height: 1.3;">情報処理技師実技試験対策の学習が急増</h2>
+          <p style="font-size: 14px; color: var(--neutral-500); margin-bottom: 12px; line-height: 1.5;">5月に入り、情報処理技師実技対策の学習者が87%増加しました。試験まであと23日、今から始めれば十分間に合います。</p>
+
+          <div style="display: flex; gap: 24px;">
+            <div>
+              <div style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 18px; line-height: 1;">▲ 87%</div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">先週比</div>
+            </div>
+            <div style="width: 1px; background: var(--neutral-200);"></div>
+            <div>
+              <div style="font-family: 'JetBrains Mono', monospace; color: var(--navy); font-weight: 700; font-size: 18px; line-height: 1;">12,847名</div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">今週学習中</div>
+            </div>
+            <div style="width: 1px; background: var(--neutral-200);"></div>
+            <div>
+              <div style="font-family: 'JetBrains Mono', monospace; color: var(--red); font-weight: 700; font-size: 18px; line-height: 1;">あと23日</div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin-top: 4px;">試験まで</div>
+            </div>
+          </div>
+        </div>
+        <a href="../33_info_recommend/code.html" class="btn btn-primary" style="height: 44px; padding: 0 20px; white-space: nowrap;">関連講座のおすすめを見る →</a>
+      </div>
+
+      <div style="position: relative; padding: 16px; margin-bottom: 24px; border: 1px dashed var(--neutral-300); border-radius: var(--r-md); background: linear-gradient(135deg, var(--orange-soft) 0%, var(--white) 100%); display: flex; gap: 16px; align-items: center;">
+        <span class="label-mono" style="position: absolute; top: 8px; right: 12px; font-size: 10px; color: var(--neutral-400);">💡 広告</span>
+        <div style="width: 64px; height: 64px; background: var(--white); border-radius: var(--r-md); font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🎓</div>
+        <div style="flex: 1;">
+          <div style="font-size: 11px; color: var(--orange); font-weight: 600; margin-bottom: 4px;">提携学習サイト</div>
+          <div style="font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 4px;">Inflearn - 情報処理技師実技完全対策講座 50%割引</div>
+          <div style="font-size: 12px; color: var(--neutral-500);">クーポンコード: <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--orange);">STUDY50</span> · 5月31日まで</div>
+        </div>
+        <a href="#" class="btn btn-secondary btn-sm">クーポンを受け取る →</a>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;">
+        <h2 style="font-family: 'Hanken Grotesk', 'Pretendard', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); margin: 0;">📊 カテゴリー別人気トレンド</h2>
+        <span style="font-size: 11px; color: var(--neutral-400); font-family: 'JetBrains Mono', monospace;">過去7日間基準</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+
+        <div class="card" style="padding: 16px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-700); background: var(--neutral-100); padding: 3px 10px; border-radius: var(--r-full);">💻 IT開発</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 12px;">▲ 42%</span>
+          </div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.4;">SQLD資格 30日で合格する</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 12px;">8,234名 · 平均1.5時間/日</div>
+          <div style="height: 4px; background: var(--neutral-200); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+            <div style="width: 70%; height: 100%; background: var(--orange);"></div>
+          </div>
+          <a href="../33_info_recommend/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">関連講座を見る →</a>
+        </div>
+
+        <div class="card" style="padding: 16px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-700); background: var(--neutral-100); padding: 3px 10px; border-radius: var(--r-full);">🌐 言語</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 12px;">▲ 35%</span>
+          </div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.4;">TOEIC 800点 → 900点 30日短期突破</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 12px;">6,891名 · 平均1時間/日</div>
+          <div style="height: 4px; background: var(--neutral-200); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+            <div style="width: 60%; height: 100%; background: var(--orange);"></div>
+          </div>
+          <a href="../33_info_recommend/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">関連講座を見る →</a>
+        </div>
+
+        <div class="card" style="padding: 16px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-700); background: var(--neutral-100); padding: 3px 10px; border-radius: var(--r-full);">💼 就職</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 12px;">▲ 28%</span>
+          </div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.4;">開発者ポートフォリオ作成法5ステップ</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 12px;">5,247名 · 平均45分/日</div>
+          <div style="height: 4px; background: var(--neutral-200); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+            <div style="width: 52%; height: 100%; background: var(--orange);"></div>
+          </div>
+          <a href="../33_info_recommend/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">関連講座を見る →</a>
+        </div>
+
+        <div class="card" style="padding: 16px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-700); background: var(--neutral-100); padding: 3px 10px; border-radius: var(--r-full);">💻 IT開発</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 12px;">▲ 21%</span>
+          </div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.4;">React入門から実戦プロジェクトまで</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 12px;">4,156名 · 平均2時間/日</div>
+          <div style="height: 4px; background: var(--neutral-200); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+            <div style="width: 45%; height: 100%; background: var(--orange);"></div>
+          </div>
+          <a href="../33_info_recommend/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">関連講座を見る →</a>
+        </div>
+
+        <div class="card" style="padding: 16px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-700); background: var(--neutral-100); padding: 3px 10px; border-radius: var(--r-full);">🎯 受験</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 12px;">▲ 18%</span>
+          </div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.4;">公務員9級行政職合格ノウハウ</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 12px;">3,892名 · 平均3時間/日</div>
+          <div style="height: 4px; background: var(--neutral-200); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+            <div style="width: 40%; height: 100%; background: var(--orange);"></div>
+          </div>
+          <a href="../33_info_recommend/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">関連講座を見る →</a>
+        </div>
+
+        <div class="card" style="padding: 16px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 11px; font-weight: 600; color: var(--neutral-700); background: var(--neutral-100); padding: 3px 10px; border-radius: var(--r-full);">🎨 デザイン</span>
+            <span style="font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 700; font-size: 12px;">▲ 15%</span>
+          </div>
+          <div style="font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.4;">Figmaで始めるUI/UXデザイン</div>
+          <div style="font-size: 12px; color: var(--neutral-500); margin-bottom: 12px;">3,254名 · 平均1時間/日</div>
+          <div style="height: 4px; background: var(--neutral-200); border-radius: var(--r-full); overflow: hidden; margin-bottom: 12px;">
+            <div style="width: 35%; height: 100%; background: var(--orange);"></div>
+          </div>
+          <a href="../33_info_recommend/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">関連講座を見る →</a>
+        </div>
+      </div>
+      <div style="position: relative; padding: 16px; margin-bottom: 24px; border: 1px dashed var(--neutral-300); border-radius: var(--r-md); background: linear-gradient(135deg, var(--info-soft) 0%, var(--white) 100%); display: flex; gap: 16px; align-items: center;">
+        <span class="label-mono" style="position: absolute; top: 8px; right: 12px; font-size: 10px; color: var(--neutral-400);">💡 広告</span>
+        <div style="width: 64px; height: 64px; background: var(--white); border-radius: var(--r-md); font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">📚</div>
+        <div style="flex: 1;">
+          <div style="font-size: 11px; color: var(--info); font-weight: 600; margin-bottom: 4px;">提携教材</div>
+          <div style="font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 4px;">Hackers - TOEIC LC/RC 1000題 最新版 30%割引</div>
+          <div style="font-size: 12px; color: var(--neutral-500);">クーポンコード: <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--info);">BOOK30</span> · 5月31日まで</div>
+        </div>
+        <a href="#" class="btn btn-secondary btn-sm">クーポンを受け取る →</a>
+      </div>
+
+      <div class="card elevated" style="padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div class="card-title" style="margin-bottom: 0;"><span class="icon">🏆</span> 今週の学習王が見たトレンド</div>
+          <a href="../05d_hall/code.html" style="color: var(--orange); font-size: 11px; font-weight: 600; text-decoration: none;">すべて見る →</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px 12px; background: var(--neutral-50); border-radius: var(--r-md);">
+            <span style="font-size: 18px; flex-shrink: 0;">🥇</span>
+            <span style="font-size: 11px; font-weight: 700; color: var(--neutral-500); min-width: 32px; font-family: 'JetBrains Mono', monospace;">1位</span>
+            <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--orange); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0;">金</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--neutral-900);">金挑戦</div>
+              <div style="font-size: 11px; color: var(--neutral-500);">💻 IT開発トレンド学習</div>
+            </div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--orange); font-size: 14px; flex-shrink: 0;">42時間</span>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px 12px; background: var(--neutral-50); border-radius: var(--r-md);">
+            <span style="font-size: 18px; flex-shrink: 0;">🥈</span>
+            <span style="font-size: 11px; font-weight: 700; color: var(--neutral-500); min-width: 32px; font-family: 'JetBrains Mono', monospace;">2位</span>
+            <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--info); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0;">朴</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--neutral-900);">朴智妍</div>
+              <div style="font-size: 11px; color: var(--neutral-500);">📜 資格トレンド学習</div>
+            </div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--orange); font-size: 14px; flex-shrink: 0;">38時間</span>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px 12px; background: var(--neutral-50); border-radius: var(--r-md);">
+            <span style="font-size: 18px; flex-shrink: 0;">🥉</span>
+            <span style="font-size: 11px; font-weight: 700; color: var(--neutral-500); min-width: 32px; font-family: 'JetBrains Mono', monospace;">3位</span>
+            <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--green); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0;">李</span>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 14px; color: var(--neutral-900);">李瑞允</div>
+              <div style="font-size: 11px; color: var(--neutral-500);">🎯 受験トレンド学習</div>
+            </div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--orange); font-size: 14px; flex-shrink: 0;">35時間</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-FE-IN-05 · /info/trend</div>
+</div>
+</body>
+</html>

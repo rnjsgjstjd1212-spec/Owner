@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>会員登録 - プロフィール設定 — 学習サポーター</title><link rel="stylesheet" href="../assets/style.css">
+<style>
+  @page { size: 1280px 1050px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 1050px; position: relative; background: var(--neutral-50); }
+  .signup-shell { display: flex; align-items: center; justify-content: center; min-height: 950px; padding: 40px; }
+  .signup-card { background: var(--white); border-radius: var(--r-lg); padding: 48px 56px; max-width: 520px; width: 100%; border: 1px solid var(--neutral-200); position: relative; }
+  .stepper { display: flex; gap: 8px; align-items: center; margin-bottom: 24px; }
+  .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--neutral-200); }
+  .step-dot.active { background: var(--orange); }
+  .step-dot.done { background: var(--green); }
+  .step-line { flex: 1; height: 2px; background: var(--neutral-200); }
+  .step-line.done { background: var(--orange); }
+  .input-field { display: block; width: 100%; padding: 12px 14px; border: 1.5px solid var(--neutral-200); border-radius: var(--r-md); font-size: 14px; }
+  .chip { padding: 8px 14px; border: 1.5px solid var(--neutral-200); border-radius: var(--r-full); font-size: 13px; color: var(--neutral-700); display: inline-block; }
+  .chip.selected { background: var(--orange); color: var(--white); border-color: var(--orange); font-weight: 600; }
+  .radio-btn { padding: 10px 14px; border: 1.5px solid var(--neutral-200); border-radius: var(--r-md); font-size: 13px; flex: 1; text-align: center; }
+  .radio-btn.selected { border-color: var(--orange); color: var(--orange); font-weight: 700; background: var(--orange-soft); }
+  .avatar-pick { width: 56px; height: 56px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; }
+  .avatar-pick.selected { background: var(--orange); border: 3px solid var(--orange); box-shadow: 0 0 0 3px var(--orange-soft); }
+  @media screen {
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .signup-shell { flex: 1; min-height: 0; padding: 24px; }
+    .signup-card { padding: 56px 56px 32px 40px; }
+  }
+</style></head>
+<body>
+<div class="page">
+  <div class="signup-shell">
+    <div class="signup-card">
+      <a href="../01_main/code.html" style="position:absolute; top:18px; right:20px; text-decoration:none; color:var(--neutral-400); font-size:20px; line-height:1;">✕</a>
+      <div class="stepper">
+        <div class="step-dot done"></div><div class="step-line done"></div>
+        <div class="step-dot done"></div><div class="step-line done"></div>
+        <div class="step-dot done"></div><div class="step-line done"></div>
+        <div class="step-dot done"></div><div class="step-line done"></div>
+        <div class="step-dot active"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--neutral-500); margin-bottom: 24px; font-family: 'JetBrains Mono', monospace;">
+        <span>登録方法</span><span>アカウント</span><span>利用規約</span><span>認証</span><span style="color: var(--orange); font-weight: 700;">プロフィール</span>
+      </div>
+
+      <h1 style="font-size: 24px; font-weight: 700; color: var(--neutral-900); margin-bottom: 24px;">プロフィールを設定してください</h1>
+
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 13px; font-weight: 600; color: var(--neutral-700); margin-bottom: 6px; display: block;">ニックネーム <span style="color: var(--neutral-400); font-weight: 400;">(2〜10文字)</span></label>
+        <input class="input-field" value="挑戦" readonly style="border-color: var(--orange);">
+        <div style="font-size: 12px; color: var(--green); margin-top: 4px;">✓ 利用可能です</div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 13px; font-weight: 600; color: var(--neutral-700); margin-bottom: 8px; display: block;">関心のある科目 <span style="color: var(--red);">*</span> <span style="color: var(--neutral-400); font-weight: 400; font-size: 11px;">1つ以上必須</span></label>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span class="chip selected">入試・受験</span>
+          <span class="chip">資格試験</span>
+          <span class="chip">語学</span>
+          <span class="chip selected">プログラミング</span>
+          <span class="chip">専攻学習</span>
+          <span class="chip">その他</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 13px; font-weight: 600; color: var(--neutral-700); margin-bottom: 8px; display: block;">1日の平均学習目標時間</label>
+        <div style="display: flex; gap: 6px;">
+          <div class="radio-btn">1h以下</div>
+          <div class="radio-btn selected">1〜3h</div>
+          <div class="radio-btn">3〜5h</div>
+          <div class="radio-btn">5h以上</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 28px;">
+        <label style="font-size: 13px; font-weight: 600; color: var(--neutral-700); margin-bottom: 8px; display: block;">アバター選択 <span style="color: var(--neutral-400); font-weight: 400; font-size: 11px;">(登録後に変更可能)</span></label>
+        <div style="display: flex; gap: 8px;">
+          <div class="avatar-pick">🦊</div>
+          <div class="avatar-pick">🐱</div>
+          <div class="avatar-pick">🐰</div>
+          <div class="avatar-pick selected">🐻</div>
+          <div class="avatar-pick">🦉</div>
+          <div class="avatar-pick">🐯</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px;">
+        <a href="../12_signup_04_verify/code.html" style="flex:0 0 120px; display:flex; align-items:center; justify-content:center; height:52px; border-radius:var(--r-md); background:var(--white); color:var(--neutral-700); border:1.5px solid var(--neutral-300); font-weight:600; font-size:14px; text-decoration:none;">← 戻る</a>
+        <a href="../14_signup_06_vault_intro/code.html" style="flex:1; display:flex; align-items:center; justify-content:center; height:52px; border-radius:var(--r-md); background:var(--orange); color:var(--white); font-weight:700; font-size:15px; text-decoration:none;">次のステップへ →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-id">P-FE-SU-20 · /auth/signup/profile</div>
+</div>
+</body></html>

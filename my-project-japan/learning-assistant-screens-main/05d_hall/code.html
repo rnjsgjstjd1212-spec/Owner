@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>殿堂入り — 学習サポーター</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    @page { size: 1280px 1200px; margin: 0; }
+    body { width: 100%; max-width: 1280px; margin: 0 auto; }
+    .page { width: 100%; max-width: 1280px; min-height: 1200px; position: relative; }
+    .podium { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 16px; align-items: end; margin-bottom: 24px; }
+    .podium-card { background: var(--white); border: 1.5px solid var(--neutral-200); border-radius: var(--r-lg); padding: 24px 20px; text-align: center; position: relative; overflow: hidden; }
+    .podium-card.gold { border-color: #FFD700; background: linear-gradient(180deg, #FFFBEB 0%, #FFF7ED 100%); transform: translateY(-12px); box-shadow: 0 12px 32px rgba(255,215,0,0.2); }
+    .podium-card.silver { border-color: #C0C0C0; background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%); }
+    .podium-card.bronze { border-color: #CD7F32; background: linear-gradient(180deg, #FFF7ED 0%, #FED7AA 30%, #FFF7ED 100%); }
+    .podium-card .crown { font-size: 36px; margin-bottom: 4px; }
+    .podium-card .rank-num { font-size: 56px; font-weight: 700; font-family: 'Hanken Grotesk', sans-serif; line-height: 1; }
+    .podium-card.gold .rank-num { color: #FFD700; }
+    .podium-card.silver .rank-num { color: #C0C0C0; }
+    .podium-card.bronze .rank-num { color: #CD7F32; }
+    .rank-row { display: flex; gap: 14px; padding: 12px 16px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-md); align-items: center; transition: background 0.15s; }
+    .rank-row.me { background: var(--orange-soft); border-color: var(--orange); border-left: 4px solid var(--orange); }
+    /* 期間フィルタータブ */
+    .hof-tab { padding: 12px 16px; color: var(--neutral-500); font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+    .hof-tab.active { color: var(--navy); font-weight: 700; border-bottom-color: var(--orange); }
+    /* 分野別チャンピオンカード */
+    .champ-card { transition: transform 0.15s, box-shadow 0.15s; }
+    .champ-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a href="../01b_main_logged_in/code.html" class="topbar-logo" style="text-decoration: none; color: inherit;"><span class="dot">📘</span><span>学習サポーター</span></a>
+    <nav class="topbar-nav">
+      <a href="../01b_main_logged_in/code.html">ホーム</a>
+      <a href="../02_dashboard/code.html">学習</a>
+      <a href="#" class="active">コミュニティ</a>
+      <a href="../08_store/code.html">ショップ</a>
+      <a href="../35_info_notice/code.html">情報</a><a href="../36_support_faq/code.html">お客様センター</a>
+    </nav>
+    <div class="topbar-search">🔍 検索</div>
+    <div class="topbar-right">
+      <span class="icon-btn">🔔</span>
+      <span class="user-chip"><span class="avatar">挑</span>挑戦</span>
+    </div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <span class="avatar">挑</span>
+        <div class="info"><div class="name">挑戦</div><div class="meta">マスター学習者 · Lv. 12</div></div>
+      </div>
+      <div style="font-size: 10px; font-weight: 700; color: var(--neutral-400); letter-spacing: 0.08em; padding: 16px 16px 8px; text-transform: uppercase;">コミュニティ</div>
+      <nav class="sidebar-nav">
+        <a href="../05_community/code.html"><span class="icon">🔓</span>公開掲示板</a>
+        <a href="../05b_qna/code.html"><span class="icon">💬</span>QnA掲示板</a>
+        <a href="../05c_free/code.html"><span class="icon">📝</span>自由掲示板</a>
+        <a href="#" class="active"><span class="icon">🏆</span>殿堂入り</a>
+        <a href="../05e_sns/code.html"><span class="icon">🔗</span>SNS連携</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+          <h1 class="h1" style="margin: 0;">🏆 殿堂入り</h1>
+          <span style="font-size: 13px; color: #FFD700; font-weight: 700;">· 今週の学習王 TOP 10</span>
+        </div>
+        <span class="btn btn-primary btn-sm" aria-hidden="true" style="visibility: hidden; position: relative; top: 24px;">+</span>
+      </div>
+      <p class="body" style="color: var(--neutral-500); margin-bottom: 16px;">最も長く学習した学習者に栄誉を。TOP 10に入ると限定バッジが付与されます。</p>
+
+      <div id="hofTabs" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--neutral-200); margin-bottom: 24px;">
+        <div style="display: flex; gap: 4px;">
+          <div class="hof-tab active" onclick="hofView('ranking', this)">週間 🔥</div>
+          <div class="hof-tab" onclick="hofView('ranking', this)">月間</div>
+          <div class="hof-tab" onclick="hofView('ranking', this)">累積合計</div>
+          <div class="hof-tab" id="tabCategory" onclick="hofView('category', this)">分野別チャンピオン</div>
+        </div>
+        <div style="font-size: 11px; color: var(--neutral-500); font-family: 'JetBrains Mono', monospace; padding-bottom: 8px;">
+          今週の締め切りまで <span style="color: var(--orange); font-weight: 700;">2日 14時間 38分</span>
+        </div>
+      </div>
+
+      <div id="rankingView">
+      <div class="podium">
+        <div class="podium-card silver">
+          <div class="crown">🥈</div>
+          <div class="rank-num">2</div>
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #C0C0C0 0%, #E5E7EB 100%); margin: 12px auto; display: flex; align-items: center; justify-content: center; font-size: 32px;">🦊</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">油断妖精</div>
+          <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">デザイン学科 · Lv. 15</div>
+          <div style="padding: 12px; background: rgba(192,192,192,0.15); border-radius: var(--r-md);">
+            <div style="font-size: 28px; font-weight: 700; color: var(--neutral-700); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">48h 15m</div>
+            <div style="font-size: 10px; color: var(--neutral-500); margin-top: 4px;">今週の学習時間</div>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 4px; margin-top: 10px;">
+            <span style="background: #C0C0C0; color: var(--white); padding: 2px 6px; border-radius: var(--r-sm); font-size: 9px; font-weight: 700;">🎯 7週連続</span>
+          </div>
+        </div>
+
+        <div class="podium-card gold">
+          <div style="position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg, #FFD700, #F59E0B); color: var(--white); padding: 4px 10px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">👑 チャンピオン</div>
+          <div class="crown" style="font-size: 48px;">🥇</div>
+          <div class="rank-num">1</div>
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 12px auto; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 8px 20px rgba(245,158,11,0.3);">😎</div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Study_King</div>
+          <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">コンピュータ工学科 · Lv. 23</div>
+          <div style="padding: 14px; background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(245,158,11,0.15)); border-radius: var(--r-md);">
+            <div style="font-size: 32px; font-weight: 700; color: #B45309; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">54h 20m</div>
+            <div style="font-size: 10px; color: #B45309; margin-top: 4px; font-weight: 600;">今週の学習時間</div>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 4px; margin-top: 10px; flex-wrap: wrap;">
+            <span style="background: #FFD700; color: #92400E; padding: 2px 6px; border-radius: var(--r-sm); font-size: 9px; font-weight: 700;">🔥 3週連続1位</span>
+          </div>
+        </div>
+
+        <div class="podium-card bronze">
+          <div class="crown">🥉</div>
+          <div class="rank-num">3</div>
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #CD7F32 0%, #92400E 100%); margin: 12px auto; display: flex; align-items: center; justify-content: center; font-size: 32px;">🎓</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px;">集中力富豪</div>
+          <div style="font-size: 11px; color: var(--neutral-500); margin-bottom: 12px;">経営学科 · Lv. 12</div>
+          <div style="padding: 12px; background: rgba(205,127,50,0.15); border-radius: var(--r-md);">
+            <div style="font-size: 28px; font-weight: 700; color: #92400E; font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">45h 0m</div>
+            <div style="font-size: 10px; color: #92400E; margin-top: 4px;">今週の学習時間</div>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 4px; margin-top: 10px;">
+            <span style="background: #CD7F32; color: var(--white); padding: 2px 6px; border-radius: var(--r-sm); font-size: 9px; font-weight: 700;">⭐ 新規ランクイン</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3 style="font-size: 14px; font-weight: 700; color: var(--neutral-700);">4位 ~ 10位</h3>
+            <span style="font-size: 11px; color: var(--neutral-500);">TOP 10入りで限定バッジを付与</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="rank-row">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--neutral-600); font-family: 'Hanken Grotesk', sans-serif;">4</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #FDE68A, #F59E0B); display: flex; align-items: center; justify-content: center; font-size: 22px;">🐱</div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: 700;">奇跡の朝型人間</div>
+                <div style="font-size: 11px; color: var(--neutral-500);">生命科学科 · Lv. 11</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--navy);">42h 30m</div>
+              <div style="background: #FEF3C7; color: #92400E; padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▲ 2</div>
+            </div>
+
+            <div class="rank-row">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--neutral-600); font-family: 'Hanken Grotesk', sans-serif;">5</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #BFDBFE, #3B82F6); display: flex; align-items: center; justify-content: center; font-size: 22px;">🐧</div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: 700;">ふくろうモード</div>
+                <div style="font-size: 11px; color: var(--neutral-500);">電気工学科 · Lv. 14</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--navy);">38h 45m</div>
+              <div style="background: var(--red-soft-2); color: var(--red); padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▼ 1</div>
+            </div>
+
+            <div class="rank-row me">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--white); font-family: 'Hanken Grotesk', sans-serif;">6</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), #FF8B47); display: flex; align-items: center; justify-content: center; font-size: 22px;">😎</div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <div style="font-size: 14px; font-weight: 700;">挑戦</div>
+                  <span style="background: var(--orange); color: var(--white); padding: 1px 6px; border-radius: var(--r-full); font-size: 9px; font-weight: 700;">私</span>
+                </div>
+                <div style="font-size: 11px; color: var(--orange);">コンピュータ工学科 · Lv. 12 · 5週連続ランクイン</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--orange);">35h 12m</div>
+              <div style="background: var(--green-soft); color: var(--green); padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▲ 3</div>
+            </div>
+
+            <div class="rank-row">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--neutral-600); font-family: 'Hanken Grotesk', sans-serif;">7</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #F9A8D4, #DB2777); display: flex; align-items: center; justify-content: center; font-size: 22px;">🐰</div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: 700;">アルゴリズムの達人</div>
+                <div style="font-size: 11px; color: var(--neutral-500);">コンピュータ工学科 · Lv. 18</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--navy);">33h 50m</div>
+              <div style="background: var(--neutral-100); color: var(--neutral-500); padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">— 維持</div>
+            </div>
+
+            <div class="rank-row">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--neutral-600); font-family: 'Hanken Grotesk', sans-serif;">8</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #6EE7B7, #10B981); display: flex; align-items: center; justify-content: center; font-size: 22px;">🐸</div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: 700;">100日連続</div>
+                <div style="font-size: 11px; color: var(--neutral-500);">看護学科 · Lv. 9</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--navy);">31h 20m</div>
+              <div style="background: #FEF3C7; color: #92400E; padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▲ 5</div>
+            </div>
+
+            <div class="rank-row">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--neutral-600); font-family: 'Hanken Grotesk', sans-serif;">9</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #DDD6FE, #8B5CF6); display: flex; align-items: center; justify-content: center; font-size: 22px;">🦄</div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: 700;">ブンバステック</div>
+                <div style="font-size: 11px; color: var(--neutral-500);">統計学科 · Lv. 10</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--navy);">29h 5m</div>
+              <div style="background: var(--red-soft-2); color: var(--red); padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▼ 2</div>
+            </div>
+
+            <div class="rank-row">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--neutral-100); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--neutral-600); font-family: 'Hanken Grotesk', sans-serif;">10</div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #FDA4AF, #E11D48); display: flex; align-items: center; justify-content: center; font-size: 22px;">🦁</div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; font-weight: 700;">DB至尊</div>
+                <div style="font-size: 11px; color: var(--neutral-500);">情報保護学科 · Lv. 13</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--navy);">27h 40m</div>
+              <div style="background: #FEF3C7; color: #92400E; padding: 2px 8px; border-radius: var(--r-full); font-size: 10px; font-weight: 700;">▲ 1</div>
+            </div>
+
+            <a href="#" style="display: block; text-align: center; padding: 12px; background: var(--neutral-50); border-radius: var(--r-sm); font-size: 13px; color: var(--orange); font-weight: 600; text-decoration: none; margin-top: 4px;">11位 ~ 100位 全て表示 ▼</a>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="card elevated" style="background: linear-gradient(180deg, var(--orange-soft) 0%, #FFF7ED 100%); border-color: var(--orange); border-width: 1.5px;">
+            <div class="card-title" style="color: var(--orange);"><span class="icon">📍</span> 順位変動</div>
+            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+              <div style="font-size: 40px; font-weight: 700; color: var(--orange); font-family: 'Hanken Grotesk', sans-serif; line-height: 1;">6位</div>
+              <div style="font-size: 14px; color: var(--green); font-weight: 700;">▲ 3</div>
+            </div>
+            <div style="font-size: 12px; color: var(--neutral-600); margin-bottom: 12px;">先週の9位 → 今週6位に上昇！</div>
+            <div style="padding: 10px; background: var(--white); border-radius: var(--r-sm); margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                <span style="font-size: 11px; color: var(--neutral-500);">TOP 3まで</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--orange); font-family: 'JetBrains Mono', monospace;">あと 9h 48m</span>
+              </div>
+              <div style="height: 6px; background: var(--neutral-100); border-radius: 999px;">
+                <div style="width: 78%; height: 100%; background: linear-gradient(90deg, var(--orange), #FF8B47); border-radius: 999px;"></div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">今すぐ学習を開始 →</a>
+          </div>
+
+          <div class="card elevated">
+            <div class="card-title"><span class="icon">🎖</span> 今週の限定バッジ</div>
+            <div style="font-size: 12px; color: var(--neutral-600); line-height: 1.5; margin-bottom: 12px;">TOP 3に入った学習者のみに付与される限定バッジ！</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+              <div style="text-align: center; padding: 10px; background: #FFFBEB; border-radius: var(--r-sm); border: 1px solid #FFD700;">
+                <div style="font-size: 28px;">👑</div>
+                <div style="font-size: 9px; color: #B45309; font-weight: 700; margin-top: 4px;">学習王</div>
+                <div style="font-size: 8px; color: var(--neutral-500);">1位</div>
+              </div>
+              <div style="text-align: center; padding: 10px; background: #F8FAFC; border-radius: var(--r-sm); border: 1px solid #C0C0C0;">
+                <div style="font-size: 28px;">🥈</div>
+                <div style="font-size: 9px; color: var(--neutral-700); font-weight: 700; margin-top: 4px;">銀色の努力</div>
+                <div style="font-size: 8px; color: var(--neutral-500);">2位</div>
+              </div>
+              <div style="text-align: center; padding: 10px; background: var(--orange-soft); border-radius: var(--r-sm); border: 1px solid #CD7F32;">
+                <div style="font-size: 28px;">🥉</div>
+                <div style="font-size: 9px; color: #92400E; font-weight: 700; margin-top: 4px;">銅像の精神</div>
+                <div style="font-size: 8px; color: var(--neutral-500);">3位</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card elevated">
+            <div class="card-title"><span class="icon">⚔️</span> 分野別チャンピオン</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--neutral-50); border-radius: var(--r-sm);">
+                <span style="font-size: 20px;">💻</span>
+                <div style="flex: 1;">
+                  <div style="font-size: 11px; color: var(--neutral-500);">アルゴリズム</div>
+                  <div style="font-size: 13px; font-weight: 700;">アルゴリズムの達人</div>
+                </div>
+                <div style="font-size: 11px; color: var(--orange); font-weight: 700; font-family: 'JetBrains Mono', monospace;">122h</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--neutral-50); border-radius: var(--r-sm);">
+                <span style="font-size: 20px;">📊</span>
+                <div style="flex: 1;">
+                  <div style="font-size: 11px; color: var(--neutral-500);">データベース</div>
+                  <div style="font-size: 13px; font-weight: 700;">DB至尊</div>
+                </div>
+                <div style="font-size: 11px; color: var(--orange); font-weight: 700; font-family: 'JetBrains Mono', monospace;">98h</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--neutral-50); border-radius: var(--r-sm);">
+                <span style="font-size: 20px;">🌐</span>
+                <div style="flex: 1;">
+                  <div style="font-size: 11px; color: var(--neutral-500);">語学</div>
+                  <div style="font-size: 13px; font-weight: 700;">TOEIC満点</div>
+                </div>
+                <div style="font-size: 11px; color: var(--orange); font-weight: 700; font-family: 'JetBrains Mono', monospace;">85h</div>
+              </div>
+            </div>
+            <a href="#" onclick="hofView('category', document.getElementById('tabCategory')); document.getElementById('hofTabs').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;" style="display: block; text-align: center; margin-top: 12px; font-size: 12px; color: var(--orange); font-weight: 600; text-decoration: none;">全分野を表示 →</a>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div id="categoryView" style="display: none;">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+          <h3 style="font-size: 18px; font-weight: 700; color: var(--navy); margin: 0;">⚔️ 分野別 全チャンピオン</h3>
+          <span style="font-size: 13px; color: var(--neutral-500); font-weight: 600;">· 8つの学習分野別 累積時間1位</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div class="card elevated champ-card" style="text-align: center;">
+            <span style="width: 48px; height: 48px; border-radius: var(--r-md); background: var(--orange-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 8px;">💻</span>
+            <div style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">アルゴリズム</div>
+            <div style="padding-top: 12px; border-top: 1px solid var(--neutral-200);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🐰</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy);">アルゴリズムの達人 <span style="font-size: 11px;">🥇</span></div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin: 2px 0 8px;">コンピュータ工学科</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--orange);">122h</div>
+            </div>
+          </div>
+          <div class="card elevated champ-card" style="text-align: center;">
+            <span style="width: 48px; height: 48px; border-radius: var(--r-md); background: var(--orange-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 8px;">📊</span>
+            <div style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">データベース</div>
+            <div style="padding-top: 12px; border-top: 1px solid var(--neutral-200);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🦁</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy);">DB至尊 <span style="font-size: 11px;">🥇</span></div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin: 2px 0 8px;">情報保護学科</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--orange);">98h</div>
+            </div>
+          </div>
+          <div class="card elevated champ-card" style="text-align: center;">
+            <span style="width: 48px; height: 48px; border-radius: var(--r-md); background: var(--orange-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 8px;">🌐</span>
+            <div style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">語学</div>
+            <div style="padding-top: 12px; border-top: 1px solid var(--neutral-200);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🦉</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy);">TOEIC満点 <span style="font-size: 11px;">🥇</span></div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin: 2px 0 8px;">英語英文学科</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--orange);">85h</div>
+            </div>
+          </div>
+          <div class="card elevated champ-card" style="text-align: center;">
+            <span style="width: 48px; height: 48px; border-radius: var(--r-md); background: var(--orange-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 8px;">⚙️</span>
+            <div style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">オペレーティングシステム</div>
+            <div style="padding-top: 12px; border-top: 1px solid var(--neutral-200);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🐺</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy);">カーネルマスター <span style="font-size: 11px;">🥇</span></div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin: 2px 0 8px;">コンピュータ工学科</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--orange);">79h</div>
+            </div>
+          </div>
+          <div class="card elevated champ-card" style="text-align: center;">
+            <span style="width: 48px; height: 48px; border-radius: var(--r-md); background: var(--orange-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 8px;">🔗</span>
+            <div style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">ネットワーク</div>
+            <div style="padding-top: 12px; border-top: 1px solid var(--neutral-200);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🦅</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy);">パケットの神 <span style="font-size: 11px;">🥇</span></div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin: 2px 0 8px;">情報通信工学科</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--orange);">73h</div>
+            </div>
+          </div>
+          <div class="card elevated champ-card" style="text-align: center;">
+            <span style="width: 48px; height: 48px; border-radius: var(--r-md); background: var(--orange-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 8px;">🌲</span>
+            <div style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">データ構造</div>
+            <div style="padding-top: 12px; border-top: 1px solid var(--neutral-200);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🐿️</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy);">ツリー征服者 <span style="font-size: 11px;">🥇</span></div>
+              <div style="font-size: 11px; color: var(--neutral-500); margin: 2px 0 8px;">ソフトウェア学科</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--orange);">68h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

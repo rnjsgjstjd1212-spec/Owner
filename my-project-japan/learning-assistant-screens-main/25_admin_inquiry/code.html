@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>1:1問い合わせ管理 — 学習サポーター管理者</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/admin.css">
+<style>
+  @page { size: 1280px 1000px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 1000px; position: relative; }
+</style></head>
+<body>
+<div class="page">
+  <div class="admin-topbar">
+    <div class="brand">学習サポーター<span class="badge-admin">管理者</span></div>
+    <div class="right"><span>👤 管理者キム</span><span>⚙️</span><span>🚪 ログアウト</span></div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-section">概要</div>
+      <a href="../20_admin_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+      <div class="admin-sidebar-section">管理</div>
+      <a href="../21_admin_users/code.html"><span class="icon">👥</span>会員管理</a>
+      <a href="../22_admin_posts/code.html"><span class="icon">📝</span>掲示板管理<span class="count">12</span></a>
+      <a href="../23_admin_items/code.html"><span class="icon">🛒</span>ショップアイテム</a>
+      <a href="../24_admin_promo/code.html"><span class="icon">📢</span>広告・イベント</a>
+      <a href="#" class="active"><span class="icon">💬</span>1:1問い合わせ<span class="count">23</span></a>
+      <div class="admin-sidebar-section">システム</div>
+      <a href="../26_admin_roles/code.html"><span class="icon">🔐</span>権限管理</a>
+      <a href="#"><span class="icon">📜</span>監査ログ</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-page-title">
+        <div>
+          <h1>💬 1:1問い合わせ管理</h1>
+          <p>回答期限 24時間 · 未回答 23件 · 18時間経過 1件 ⚠️</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;">
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">未回答</div>
+          <div class="value" style="font-size: 22px; color: var(--red);">23件</div>
+        </div>
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">今日の回答完了</div>
+          <div class="value" style="font-size: 22px; color: var(--green);">17件</div>
+        </div>
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">平均回答時間</div>
+          <div class="value" style="font-size: 22px;">3h 12m</div>
+        </div>
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">満足度 (5点)</div>
+          <div class="value" style="font-size: 22px; color: var(--orange);">⭐ 4.6</div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 6px; margin-bottom: 16px;">
+        <span style="padding: 8px 14px; background: var(--red); color: var(--white); border-radius: var(--r-sm); font-size: 12px; font-weight: 700;">🔴 未回答 23</span>
+        <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">回答完了 142</span>
+        <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;">全体 165</span>
+        <select style="margin-left: auto; padding: 6px 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 12px;"><option>カテゴリー: 全て</option></select>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr><th style="width: 80px;">ID</th><th>タイトル · 本文プレビュー</th><th style="width: 110px;">投稿者</th><th style="width: 90px;">カテゴリー</th><th style="width: 100px;">受付</th><th style="width: 70px;">状態</th><th style="width: 110px;">作業</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background: var(--red-soft);">
+            <td><strong>I501</strong></td>
+            <td><strong>決済エラー — プレミアム決済後に適用されない</strong><br><span style="font-size: 11px; color: var(--neutral-500);">"こんにちは。昨日9,900ウォン決済しましたが、プレミアムが適用..."</span></td>
+            <td>挑戦</td>
+            <td><span class="badge badge-danger">決済</span></td>
+            <td><strong style="color: var(--red);">18時間前</strong></td>
+            <td><span class="badge badge-danger">🔴 緊急</span></td>
+            <td><a href="#" class="btn btn-secondary btn-sm">回答</a></td>
+          </tr>
+          <tr style="background: var(--orange-soft);">
+            <td>I502</td>
+            <td><strong>黒歴史システムがOFFにできない</strong><br><span style="font-size: 11px; color: var(--neutral-500);">"マイページでトグルを押しても再びONに..."</span></td>
+            <td>student_park</td>
+            <td><span class="badge badge-warning">機能</span></td>
+            <td>6時間前</td>
+            <td><span class="badge badge-warning">🟠</span></td>
+            <td><a href="#" class="btn btn-secondary btn-sm">回答</a></td>
+          </tr>
+          <tr>
+            <td>I503</td>
+            <td>会員退会後の再登録はどうすればいいですか？</td>
+            <td>ex_user</td>
+            <td><span class="badge badge-info">会員</span></td>
+            <td>2時間前</td>
+            <td><span class="badge badge-success">🟢</span></td>
+            <td><a href="#" class="btn btn-secondary btn-sm">回答</a></td>
+          </tr>
+          <tr>
+            <td>I504</td>
+            <td>学習データのエクスポート (CSV) 可能ですか？</td>
+            <td>data_lover</td>
+            <td><span class="badge badge-info">その他</span></td>
+            <td>1時間前</td>
+            <td><span class="badge badge-success">🟢</span></td>
+            <td><a href="#" class="btn btn-secondary btn-sm">回答</a></td>
+          </tr>
+          <tr>
+            <td>I505</td>
+            <td>コミュニティ投稿を通報した後の処理結果</td>
+            <td>night_owl</td>
+            <td><span class="badge badge-warning">コミュニティ</span></td>
+            <td>45分前</td>
+            <td><span class="badge badge-success">🟢</span></td>
+            <td><a href="#" class="btn btn-secondary btn-sm">回答</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 16px; padding: 14px; background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-md);">
+        <div style="font-size: 12px; font-weight: 700; color: var(--neutral-700); margin-bottom: 8px;">📋 クイック回答テンプレート</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span style="padding: 6px 12px; background: var(--neutral-50); border-radius: var(--r-full); font-size: 11px; color: var(--neutral-700);">決済返金案内</span>
+          <span style="padding: 6px 12px; background: var(--neutral-50); border-radius: var(--r-full); font-size: 11px; color: var(--neutral-700);">機能の使い方</span>
+          <span style="padding: 6px 12px; background: var(--neutral-50); border-radius: var(--r-full); font-size: 11px; color: var(--neutral-700);">アカウント復旧</span>
+          <span style="padding: 6px 12px; background: var(--neutral-50); border-radius: var(--r-full); font-size: 11px; color: var(--neutral-700);">通報処理結果</span>
+          <span style="padding: 6px 12px; background: var(--neutral-50); border-radius: var(--r-full); font-size: 11px; color: var(--neutral-700);">+ テンプレート追加</span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-BE-IQ-00 · /admin/inquiry</div>
+</div>
+</body></html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>権限管理 — 学習サポーター管理者</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/admin.css">
+<style>
+  @page { size: 1280px 1000px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 1000px; position: relative; }
+  .perm-yes { color: var(--green); font-weight: 700; font-size: 18px; }
+  .perm-no { color: var(--neutral-300); font-size: 18px; }
+</style></head>
+<body>
+<div class="page">
+  <div class="admin-topbar">
+    <div class="brand">学習サポーター<span class="badge-admin">管理者</span></div>
+    <div class="right"><span>👤 管理者キム (最高管理者)</span><span>⚙️</span><span>🚪 ログアウト</span></div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-section">概要</div>
+      <a href="../20_admin_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+      <div class="admin-sidebar-section">管理</div>
+      <a href="../21_admin_users/code.html"><span class="icon">👥</span>会員管理</a>
+      <a href="../22_admin_posts/code.html"><span class="icon">📝</span>掲示板管理<span class="count">12</span></a>
+      <a href="../23_admin_items/code.html"><span class="icon">🛒</span>ショップアイテム</a>
+      <a href="../24_admin_promo/code.html"><span class="icon">📢</span>広告・イベント</a>
+      <a href="../25_admin_inquiry/code.html"><span class="icon">💬</span>1:1問い合わせ<span class="count">23</span></a>
+      <div class="admin-sidebar-section">システム</div>
+      <a href="#" class="active"><span class="icon">🔐</span>権限管理</a>
+      <a href="#"><span class="icon">📜</span>監査ログ</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-page-title">
+        <div>
+          <h1>🔐 権限・管理者アカウント管理</h1>
+          <p>合計管理者4名 · 権限4段階 · 最高管理者専用ページ</p>
+        </div>
+        <a href="#" class="btn btn-primary btn-sm">+ 管理者追加</a>
+      </div>
+
+      <!-- Admin list -->
+      <div style="margin-bottom: 24px;">
+        <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 12px;">👤 現在の管理者アカウント</h3>
+        <table class="admin-table">
+          <thead><tr><th style="width: 60px;">ID</th><th>名前</th><th>メール</th><th style="width: 130px;">役割</th><th style="width: 100px;">最終接続</th><th style="width: 80px;">2FA</th><th style="width: 80px;">状態</th><th style="width: 60px;"></th></tr></thead>
+          <tbody>
+            <tr style="background: var(--orange-soft);">
+              <td>A001</td><td><strong>管理者キム</strong> ⭐</td><td>kim@admin.studyguard.kr</td>
+              <td><span class="badge badge-navy">最高管理者</span></td>
+              <td>2分前</td><td>✅ 有効</td><td><span class="badge badge-success">有効</span></td><td>⋮</td>
+            </tr>
+            <tr>
+              <td>A002</td><td>管理者パク</td><td>park@admin.studyguard.kr</td>
+              <td><span class="badge badge-info">運営者</span></td>
+              <td>15分前</td><td>✅ 有効</td><td><span class="badge badge-success">有効</span></td><td>⋮</td>
+            </tr>
+            <tr>
+              <td>A003</td><td>管理者イ</td><td>lee@admin.studyguard.kr</td>
+              <td><span class="badge badge-warning">仲裁者</span></td>
+              <td>1時間前</td><td>✅ 有効</td><td><span class="badge badge-success">有効</span></td><td>⋮</td>
+            </tr>
+            <tr>
+              <td>A004</td><td>管理者チェ</td><td>choi@admin.studyguard.kr</td>
+              <td><span class="badge" style="background: #E0E7FF; color: #3730A3;">サポート</span></td>
+              <td>3時間前</td><td>✅ 有効</td><td><span class="badge badge-success">有効</span></td><td>⋮</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Permission Matrix -->
+      <div>
+        <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 12px;">⚙️ 役割別権限マトリックス</h3>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>権限 / メニュー</th>
+              <th style="text-align: center;">最高管理者</th>
+              <th style="text-align: center;">運営者</th>
+              <th style="text-align: center;">仲裁者</th>
+              <th style="text-align: center;">サポート</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>📊 ダッシュボード照会</strong></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td></tr>
+            <tr><td><strong>👥 会員管理</strong> (照会/修正/制裁)</td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td></tr>
+            <tr><td><strong>📝 掲示板管理</strong> (承認/遮断)</td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td></tr>
+            <tr><td><strong>🛒 ショップアイテム管理</strong></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td></tr>
+            <tr><td><strong>📢 広告・イベント管理</strong></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td></tr>
+            <tr><td><strong>💬 1:1問い合わせ回答</strong></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-yes">✓</span></td></tr>
+            <tr style="background: var(--orange-soft);"><td><strong>🔐 権限・管理者アカウント管理</strong></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td></tr>
+            <tr><td><strong>📜 監査ログ照会</strong></td><td style="text-align: center;"><span class="perm-yes">✓</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td><td style="text-align: center;"><span class="perm-no">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 16px; padding: 14px; background: var(--orange-soft); border-left: 4px solid var(--orange); border-radius: var(--r-sm); font-size: 12px; color: var(--neutral-700);">
+        ⚠️ <strong>重要</strong> · 権限変更は即時適用。すべての権限変更は監査ログに記録され、変更理由の入力が必須です。
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-BE-RL-00 · /admin/roles</div>
+</div>
+</body></html>

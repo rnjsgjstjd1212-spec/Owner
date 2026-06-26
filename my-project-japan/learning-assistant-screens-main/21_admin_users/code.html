@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>会員管理 — 学習サポーター管理者</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/admin.css">
+<style>
+  @page { size: 1280px 950px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 950px; position: relative; }
+</style></head>
+<body>
+<div class="page">
+  <div class="admin-topbar">
+    <div class="brand">学習サポーター<span class="badge-admin">管理者</span></div>
+    <div class="right">
+      <span>👤 管理者キム (最高管理者)</span>
+      <span>⚙️</span><span>🚪 ログアウト</span>
+    </div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-section">概要</div>
+      <a href="../20_admin_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+      <div class="admin-sidebar-section">管理</div>
+      <a href="#" class="active"><span class="icon">👥</span>会員管理</a>
+      <a href="../22_admin_posts/code.html"><span class="icon">📝</span>掲示板管理<span class="count">12</span></a>
+      <a href="../23_admin_items/code.html"><span class="icon">🛒</span>ショップアイテム</a>
+      <a href="../24_admin_promo/code.html"><span class="icon">📢</span>広告・イベント</a>
+      <a href="../25_admin_inquiry/code.html"><span class="icon">💬</span>1:1問い合わせ<span class="count">23</span></a>
+      <div class="admin-sidebar-section">システム</div>
+      <a href="../26_admin_roles/code.html"><span class="icon">🔐</span>権限管理</a>
+      <a href="#"><span class="icon">📜</span>監査ログ</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-page-title">
+        <div>
+          <h1>👥 会員管理</h1>
+          <p>合計 18,250名 · 今日の新規 +185名 · 停止中 12名</p>
+        </div>
+        <a href="#" class="btn btn-primary btn-sm">+ 手動で会員を追加</a>
+      </div>
+
+      <!-- Filter bar -->
+      <div style="display: flex; gap: 8px; margin-bottom: 16px; background: var(--white); padding: 12px; border-radius: var(--r-md); border: 1px solid var(--neutral-200);">
+        <input style="flex: 1; padding: 8px 14px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 13px;" value="🔍 ニックネーム / メールアドレス / IDを検索..." readonly>
+        <select style="padding: 8px 14px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 13px;"><option>全状態</option></select>
+        <select style="padding: 8px 14px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 13px;"><option>登録日: 全て</option></select>
+        <select style="padding: 8px 14px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); font-size: 13px;"><option>等級: 全て</option></select>
+        <a href="#" class="btn btn-secondary btn-sm">📥 エクスポート</a>
+      </div>
+
+      <!-- Users table -->
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th style="width: 60px;">ID</th>
+            <th>ニックネーム</th>
+            <th>メールアドレス</th>
+            <th style="width: 90px;">登録日</th>
+            <th style="width: 80px;">等級</th>
+            <th style="width: 120px;">学習時間</th>
+            <th style="width: 100px;">状態</th>
+            <th style="width: 60px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: var(--orange-soft);">
+            <td><strong>1234</strong></td>
+            <td><strong>挑戦</strong> ⭐ <span style="font-size: 10px; color: var(--orange); font-weight: 700;">集中</span></td>
+            <td>kdj@univ.ac.kr</td>
+            <td>04/11</td>
+            <td><span class="badge badge-warning">Lv.12</span></td>
+            <td>142h 30m</td>
+            <td><span class="badge badge-success">アクティブ</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1235</td>
+            <td>math_king</td>
+            <td>km@gmail.com</td>
+            <td>04/12</td>
+            <td><span class="badge badge-info">Lv.8</span></td>
+            <td>89h 15m</td>
+            <td><span class="badge badge-success">アクティブ</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1236</td>
+            <td>user_X</td>
+            <td>ux@naver.com</td>
+            <td>04/13</td>
+            <td><span class="badge badge-info">Lv.5</span></td>
+            <td>32h 10m</td>
+            <td><span class="badge badge-danger">通報 3件</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1237</td>
+            <td>studious</td>
+            <td>st@kakao.com</td>
+            <td>04/14</td>
+            <td><span class="badge badge-warning">Lv.15</span></td>
+            <td>205h 45m</td>
+            <td><span class="badge badge-success">プレミアム</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1238</td>
+            <td>night_owl</td>
+            <td>no@gmail.com</td>
+            <td>04/15</td>
+            <td><span class="badge badge-info">Lv.7</span></td>
+            <td>67h 00m</td>
+            <td><span class="badge badge-danger">制裁中 (7日)</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1239</td>
+            <td>silent_loser</td>
+            <td>sl@daum.net</td>
+            <td>04/16</td>
+            <td><span class="badge badge-info">Lv.3</span></td>
+            <td>18h 22m</td>
+            <td><span class="badge badge-success">アクティブ</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1240</td>
+            <td>study_king</td>
+            <td>sk@univ.ac.kr</td>
+            <td>04/16</td>
+            <td><span class="badge badge-warning">Lv.18</span></td>
+            <td>312h 5m</td>
+            <td><span class="badge badge-success">プレミアム</span></td>
+            <td>⋮</td>
+          </tr>
+          <tr>
+            <td>1241</td>
+            <td>code_warrior</td>
+            <td>cw@gmail.com</td>
+            <td>04/17</td>
+            <td><span class="badge badge-info">Lv.6</span></td>
+            <td>42h 30m</td>
+            <td><span class="badge badge-success">アクティブ</span></td>
+            <td>⋮</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 12px;">
+        <div style="color: var(--neutral-500);">合計 18,250名中 1-8を表示</div>
+        <div style="display: flex; gap: 4px;">
+          <span style="padding: 6px 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); background: var(--white);">‹</span>
+          <span style="padding: 6px 12px; background: var(--navy); color: var(--white); border-radius: var(--r-sm); font-weight: 700;">1</span>
+          <span style="padding: 6px 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); background: var(--white);">2</span>
+          <span style="padding: 6px 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); background: var(--white);">3</span>
+          <span style="padding: 6px 12px; color: var(--neutral-400);">...</span>
+          <span style="padding: 6px 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); background: var(--white);">2,281</span>
+          <span style="padding: 6px 12px; border: 1px solid var(--neutral-200); border-radius: var(--r-sm); background: var(--white);">›</span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-BE-US-00 · /admin/users</div>
+</div>
+</body></html>

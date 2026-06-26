@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>会員登録 - 利用規約への同意 — 学習サポーター</title><link rel="stylesheet" href="../assets/style.css">
+<style>
+  @page { size: 1280px 1000px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 1000px; position: relative; background: var(--neutral-50); }
+  .signup-shell { display: flex; align-items: center; justify-content: center; min-height: 900px; padding: 40px; }
+  .signup-card { background: var(--white); border-radius: var(--r-lg); padding: 48px 56px; max-width: 540px; width: 100%; border: 1px solid var(--neutral-200); position: relative; }
+  .stepper { display: flex; gap: 8px; align-items: center; margin-bottom: 24px; }
+  .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--neutral-200); }
+  .step-dot.active { background: var(--orange); }
+  .step-dot.done { background: var(--green); }
+  .step-line { flex: 1; height: 2px; background: var(--neutral-200); }
+  .step-line.done { background: var(--orange); }
+
+  .terms-box { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--r-md); padding: 4px; }
+  .term-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--neutral-200); }
+  .term-item:last-child { border-bottom: 0; }
+  .term-item.all { background: var(--white); border-radius: var(--r-sm); margin-bottom: 4px; border-bottom: 0; }
+  .term-checkbox { width: 22px; height: 22px; border: 2px solid var(--neutral-300); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .term-checkbox.checked { background: var(--orange); border-color: var(--orange); color: var(--white); }
+  .term-label { flex: 1; font-size: 13px; color: var(--neutral-900); }
+  .term-label .required { color: var(--red); font-weight: 700; font-size: 11px; margin-right: 4px; }
+  .term-label .optional { color: var(--neutral-400); font-weight: 600; font-size: 11px; margin-right: 4px; }
+  .view-link { font-size: 11px; color: var(--neutral-500); text-decoration: none; flex-shrink: 0; }
+  @media screen {
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .signup-shell { flex: 1; min-height: 0; padding: 24px; }
+    .signup-card { padding: 56px 56px 32px 40px; }
+  }
+</style></head>
+<body>
+<div class="page">
+  <div class="signup-shell">
+    <div class="signup-card">
+      <a href="../01_main/code.html" style="position:absolute; top:18px; right:20px; text-decoration:none; color:var(--neutral-400); font-size:20px; line-height:1;">✕</a>
+      <div class="stepper">
+        <div class="step-dot done"></div><div class="step-line done"></div>
+        <div class="step-dot done"></div><div class="step-line done"></div>
+        <div class="step-dot active"></div><div class="step-line"></div>
+        <div class="step-dot"></div><div class="step-line"></div>
+        <div class="step-dot"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--neutral-500); margin-bottom: 24px; font-family: 'JetBrains Mono', monospace;">
+        <span>登録方法</span><span>アカウント</span><span style="color: var(--orange); font-weight: 700;">利用規約</span><span>認証</span><span>プロフィール</span>
+      </div>
+
+      <h1 style="font-size: 24px; font-weight: 700; color: var(--neutral-900); margin-bottom: 8px;">利用規約への同意が必要です</h1>
+      <p style="font-size: 13px; color: var(--neutral-500); margin-bottom: 24px;">サービス利用のために、以下の規約に同意してください。</p>
+
+      <div class="terms-box">
+        <div class="term-item all">
+          <div class="term-checkbox checked">✓</div>
+          <div class="term-label" style="font-weight: 700;">すべて同意 — 必須および選択項目すべてに同意</div>
+        </div>
+        <div class="term-item">
+          <div class="term-checkbox checked">✓</div>
+          <div class="term-label"><span class="required">[必須]</span> 14歳以上です</div>
+          <a class="view-link" href="#">確認 →</a>
+        </div>
+        <div class="term-item">
+          <div class="term-checkbox checked">✓</div>
+          <div class="term-label"><span class="required">[必須]</span> サービス利用規約</div>
+          <a class="view-link" href="#">確認 →</a>
+        </div>
+        <div class="term-item">
+          <div class="term-checkbox checked">✓</div>
+          <div class="term-label"><span class="required">[必須]</span> 個人情報の収集・利用に関する同意</div>
+          <a class="view-link" href="#">確認 →</a>
+        </div>
+        <div class="term-item">
+          <div class="term-checkbox checked">✓</div>
+          <div class="term-label"><span class="optional">[選択]</span> マーケティング情報の受信 (イベント·割引)</div>
+          <a class="view-link" href="#">確認 →</a>
+        </div>
+        <div class="term-item">
+          <div class="term-checkbox checked">✓</div>
+          <div class="term-label"><span class="optional">[選択]</span> 黒歴史システムを有効化</div>
+          <a class="view-link" href="#">確認 →</a>
+        </div>
+      </div>
+
+      <div style="background: var(--info-soft); border-radius: var(--r-sm); padding: 12px 14px; margin-top: 16px; font-size: 12px; color: #1E40AF; line-height: 1.6;">
+        💡 黒歴史システムは、登録後もマイページからいつでもON/OFF切り替え可能です。
+      </div>
+
+      <div style="display:flex; gap:12px; margin-top: 24px;">
+        <a href="../10_signup_02_email/code.html" style="flex:0 0 120px; display:flex; align-items:center; justify-content:center; height:52px; border-radius:var(--r-md); background:var(--white); color:var(--neutral-700); border:1.5px solid var(--neutral-300); font-weight:600; font-size:14px; text-decoration:none;">← 戻る</a>
+        <a href="../12_signup_04_verify/code.html" style="flex:1; display:flex; align-items:center; justify-content:center; height:52px; border-radius:var(--r-md); background:var(--orange); color:var(--white); font-weight:700; font-size:15px; text-decoration:none;">次のステップへ →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="screen-id">P-FE-SU-10 · /auth/signup/terms</div>
+</div>
+</body></html>

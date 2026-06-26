@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>会員登録完了 — 学習サポーター</title><link rel="stylesheet" href="../assets/style.css">
+<style>
+  @page { size: 1280px 900px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 900px; position: relative; background: linear-gradient(135deg, #F8F9FF 0%, #FFF7ED 100%); }
+  .signup-shell { display: flex; align-items: center; justify-content: center; min-height: 900px; padding: 40px; }
+  .signup-card { background: var(--white); border-radius: var(--r-lg); padding: 64px 56px; max-width: 540px; width: 100%; border: 1px solid var(--neutral-200); text-align: center; box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .check-row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--neutral-50); border-radius: var(--r-sm); margin-bottom: 8px; text-align: left; }
+  .check-row .check { width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: var(--white); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; }
+  .check-row .text { font-size: 13px; color: var(--neutral-900); font-weight: 600; }
+  @media screen {
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .signup-shell { flex: 1; min-height: 0; padding: 24px; }
+  }
+</style></head>
+<body>
+<div class="page">
+  <div class="signup-shell">
+    <div class="signup-card">
+      <div style="font-size: 96px; margin-bottom: 16px;">🎉</div>
+      <h1 style="font-size: 32px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">挑戦さん、ようこそ！</h1>
+      <p style="font-size: 15px; color: var(--neutral-500); margin-bottom: 32px;">学習サポーターと一緒に始める準備がすべて整いました。</p>
+
+      <div style="margin-bottom: 32px;">
+        <div class="check-row"><span class="check">✓</span><span class="text">アカウント作成完了</span></div>
+        <div class="check-row"><span class="check">✓</span><span class="text">利用規約への同意完了</span></div>
+        <div class="check-row"><span class="check">✓</span><span class="text">メール認証完了</span></div>
+        <div class="check-row"><span class="check">✓</span><span class="text">プロフィール設定完了 (関心: 入試, プログラミング)</span></div>
+        <div class="check-row"><span class="check">✓</span><span class="text">黒歴史封印所: ファイル2件登録 · 安全モニタリング通過</span></div>
+      </div>
+
+      <div style="background: var(--navy); color: var(--white); padding: 20px; border-radius: var(--r-md); margin-bottom: 24px;">
+        <div style="font-size: 11px; letter-spacing: 0.1em; color: var(--orange); font-weight: 700; margin-bottom: 8px;">🎁 NEW MEMBER GIFT</div>
+        <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">7日間プレミアム無料体験</div>
+        <div style="font-size: 12px; color: rgba(255,255,255,0.7);">AIサポーター無制限 + 広告削除 + 高度な統計分析</div>
+      </div>
+
+      <a href="../17_signup_09_onboarding/code.html" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 56px; border-radius: var(--r-md); background: var(--orange); color: var(--white); font-weight: 700; font-size: 16px; text-decoration: none;">
+        学習サポーターを始める →
+      </a>
+    </div>
+  </div>
+
+  <div class="screen-id">P-FE-SU-35 · /auth/signup/complete</div>
+</div>
+</body></html>

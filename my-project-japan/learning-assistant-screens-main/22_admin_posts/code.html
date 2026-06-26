@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>掲示板管理 — 学習サポーター管理者</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/admin.css">
+<style>
+  @page { size: 1280px 950px; margin: 0; }
+  body { width: 100%; max-width: 1280px; margin: 0 auto; }
+  .page { width: 100%; max-width: 1280px; min-height: 950px; position: relative; }
+</style></head>
+<body>
+<div class="page">
+  <div class="admin-topbar">
+    <div class="brand">学習サポーター<span class="badge-admin">管理者</span></div>
+    <div class="right"><span>👤 管理者キム</span><span>⚙️</span><span>🚪 ログアウト</span></div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-section">概要</div>
+      <a href="../20_admin_dashboard/code.html"><span class="icon">📊</span>ダッシュボード</a>
+      <div class="admin-sidebar-section">管理</div>
+      <a href="../21_admin_users/code.html"><span class="icon">👥</span>会員管理</a>
+      <a href="#" class="active"><span class="icon">📝</span>掲示板管理<span class="count">12</span></a>
+      <a href="../23_admin_items/code.html"><span class="icon">🛒</span>ショップアイテム</a>
+      <a href="../24_admin_promo/code.html"><span class="icon">📢</span>広告・イベント</a>
+      <a href="../25_admin_inquiry/code.html"><span class="icon">💬</span>1:1問い合わせ<span class="count">23</span></a>
+      <div class="admin-sidebar-section">システム</div>
+      <a href="../26_admin_roles/code.html"><span class="icon">🔐</span>権限管理</a>
+      <a href="#"><span class="icon">📜</span>監査ログ</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-page-title">
+        <div>
+          <h1>📝 掲示板管理 · 安全モニタリング</h1>
+          <p>AI自動分析 + 管理者による手動確認 · 回答期限 24時間以内の処理</p>
+        </div>
+      </div>
+
+      <!-- AI Stats -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;">
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">今日の新規投稿</div>
+          <div class="value" style="font-size: 22px;">1,247</div>
+        </div>
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">AI自動通過</div>
+          <div class="value" style="font-size: 22px; color: var(--green);">98.4%</div>
+        </div>
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">管理者確認保留</div>
+          <div class="value" style="font-size: 22px; color: var(--amber);">7件</div>
+        </div>
+        <div class="admin-kpi-card" style="padding: 14px;">
+          <div class="label">通報未処理</div>
+          <div class="value" style="font-size: 22px; color: var(--red);">12件</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display: flex; gap: 4px; margin-bottom: 16px; background: var(--white); padding: 4px; border-radius: var(--r-md); border: 1px solid var(--neutral-200); width: fit-content;">
+        <span style="padding: 8px 16px; background: var(--navy); color: var(--white); border-radius: var(--r-sm); font-size: 13px; font-weight: 700;">全体</span>
+        <span style="padding: 8px 16px; font-size: 13px; color: var(--red); font-weight: 600;">🚨 通報 12</span>
+        <span style="padding: 8px 16px; font-size: 13px; color: var(--amber); font-weight: 600;">⚠️ モニタリング保留 7</span>
+        <span style="padding: 8px 16px; font-size: 13px; color: var(--neutral-500);">自由掲示板</span>
+        <span style="padding: 8px 16px; font-size: 13px; color: var(--neutral-500);">公開掲示板 (黒歴史)</span>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr><th style="width: 70px;">ID</th><th>タイトル · 本文プレビュー</th><th style="width: 110px;">投稿者</th><th style="width: 100px;">掲示板</th><th style="width: 110px;">AI判定</th><th style="width: 100px;">状態</th><th style="width: 180px;">作業</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background: var(--red-soft);">
+            <td><strong>P101</strong></td>
+            <td><strong>"黒歴史写真の露出がひどすぎる..."</strong><br><span style="font-size: 11px; color: var(--neutral-500);">通報 5件受付 · AI信頼度 64%</span></td>
+            <td>user_X</td>
+            <td>公開</td>
+            <td><span class="badge badge-danger">不適切</span></td>
+            <td><span class="badge badge-warning">保留</span></td>
+            <td>
+              <a href="#" class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 4px 8px;">✓ 承認</a>
+              <a href="#" class="btn btn-danger btn-sm" style="font-size: 11px; padding: 4px 8px;">🚫 ブロック</a>
+            </td>
+          </tr>
+          <tr>
+            <td>P102</td>
+            <td>今日、充実した一日を過ごしました · 認証ショット添付</td>
+            <td>study_king</td>
+            <td>学習認証</td>
+            <td><span class="badge badge-success">安全</span></td>
+            <td><span class="badge badge-success">公開</span></td>
+            <td><span style="color: var(--neutral-400); font-size: 11px;">自動処理</span></td>
+          </tr>
+          <tr style="background: var(--red-soft);">
+            <td>P103</td>
+            <td><strong>"外部サイト広告の疑い..."</strong></td>
+            <td>marketer_X</td>
+            <td>自由</td>
+            <td><span class="badge badge-danger">広告</span></td>
+            <td><span class="badge badge-danger">ブロック</span></td>
+            <td>
+              <a href="#" class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 4px 8px;">復元</a>
+              <a href="#" class="btn btn-ghost btn-sm" style="font-size: 11px; padding: 4px 8px;">警告</a>
+            </td>
+          </tr>
+          <tr style="background: var(--orange-soft);">
+            <td>P104</td>
+            <td>SQLの解き方を共有します</td>
+            <td>code_warrior</td>
+            <td>自由</td>
+            <td><span class="badge badge-warning">注意</span></td>
+            <td><span class="badge badge-warning">保留</span></td>
+            <td>
+              <a href="#" class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 4px 8px;">✓ 承認</a>
+              <a href="#" class="btn btn-danger btn-sm" style="font-size: 11px; padding: 4px 8px;">🚫 ブロック</a>
+            </td>
+          </tr>
+          <tr>
+            <td>P105</td>
+            <td>今日も達成できず... 黒歴史が公開される ㅠ</td>
+            <td>silent_loser</td>
+            <td>公開</td>
+            <td><span class="badge badge-success">安全</span></td>
+            <td><span class="badge badge-success">公開</span></td>
+            <td><span style="color: var(--neutral-400); font-size: 11px;">自動処理</span></td>
+          </tr>
+          <tr>
+            <td>P106</td>
+            <td>TOEIC LC 1回分読破認証</td>
+            <td>挑戦</td>
+            <td>学習認証</td>
+            <td><span class="badge badge-success">安全</span></td>
+            <td><span class="badge badge-success">公開</span></td>
+            <td><span style="color: var(--neutral-400); font-size: 11px;">自動処理</span></td>
+          </tr>
+          <tr style="background: var(--red-soft);">
+            <td>P107</td>
+            <td><strong>"個人情報露出の疑い (メールアドレス)..."</strong></td>
+            <td>night_owl</td>
+            <td>自由</td>
+            <td><span class="badge badge-danger">不適切</span></td>
+            <td><span class="badge badge-warning">保留</span></td>
+            <td>
+              <a href="#" class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 4px 8px;">✓ 承認</a>
+              <a href="#" class="btn btn-danger btn-sm" style="font-size: 11px; padding: 4px 8px;">🚫 ブロック</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Bulk action -->
+      <div style="margin-top: 16px; padding: 12px 16px; background: var(--white); border: 1px solid var(--orange); border-radius: var(--r-md); display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 12px; color: var(--neutral-700);">⚠️ <strong style="color: var(--orange);">3件選択済み</strong></div>
+        <div style="display: flex; gap: 8px;">
+          <a href="#" class="btn btn-secondary btn-sm">✓ 一括公開承認</a>
+          <a href="#" class="btn btn-danger btn-sm">🚫 一括ブロック</a>
+          <a href="#" class="btn btn-ghost btn-sm">📢 投稿者へ警告</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="screen-id">P-BE-PT-00 · /admin/posts</div>
+</div>
+</body></html>
